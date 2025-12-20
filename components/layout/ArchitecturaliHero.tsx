@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ArchitecturalHero() {
   return (
@@ -23,8 +24,8 @@ export default function ArchitecturalHero() {
       <nav className="absolute top-0 w-full p-8 flex justify-between items-center z-50 text-xs uppercase tracking-widest text-zinc-400">
         <div className="text-white font-syncopate font-bold text-lg mix-blend-difference">RDNZDA</div>
         <div className="space-x-8 hidden md:block">
-          <span className="cursor-pointer hover:text-white transition-colors">Biographie</span>
-          <span className="cursor-pointer hover:text-white transition-colors">Projets</span>
+          <span className="cursor-pointer hover:text-white transition-colors"><Link href="#biographie">Biographie</Link></span>
+          <span className="cursor-pointer hover:text-white transition-colors"><Link href="#projets">Projets</Link></span>
         </div>
       </nav>
 
@@ -55,7 +56,7 @@ export default function ArchitecturalHero() {
             <div className="ml-3 mt-8 flex items-center gap-6 relative z-20">
                 <div className="h-[1px] w-20 bg-white/60"></div>
                 <p className="text-zinc-200 font-syncopate font-bold text-sm tracking-[0.2em] uppercase drop-shadow-md">
-                Web Developer & Designer
+                Développeur & Designer Web
                 </p>
             </div>
         </div>

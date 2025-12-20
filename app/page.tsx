@@ -1,10 +1,16 @@
-import ArchitecturalHero from "@/components/layout/ArchitecturaliHero";
+import BackgroundLayout from "@/components/layout/BackgroundLayout";
+import HeroSection from "@/components/sections/HeroSection";
+import BiographieSection from "@/components/sections/BiographieSection";
+import ProjetsSection from "@/components/sections/ProjetsSection";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      
-      <ArchitecturalHero />
-    </div>
+    <BackgroundLayout>
+      <HeroSection />
+      <BiographieSection />
+      <ProjetsSection />
+      <Footer />
+    </BackgroundLayout>
   );
 }
