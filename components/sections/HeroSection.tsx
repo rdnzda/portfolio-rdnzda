@@ -5,9 +5,9 @@ export default function HeroSection() {
       {/* GROUPE TEXTE */}
       <div className="relative max-w-4xl">
           
-          {/* TEXTE ARRIÈRE-PLAN (Outlined) - Caché sur très petit mobile */}
+          {/* TEXTE ARRIÈRE-PLAN (Outlined) - Visible sur tous les écrans */}
           <h1 
-              className="absolute -top-10 sm:-top-16 md:-top-20 -left-2 sm:-left-6 md:-left-10 text-[3.5rem] sm:text-[5rem] md:text-[8rem] lg:text-[10rem] font-bold uppercase leading-none select-none pointer-events-none whitespace-nowrap animate-fade-in hidden xs:block"
+              className="absolute -top-8 sm:-top-16 md:-top-20 -left-1 sm:-left-4 md:-left-1 text-[3.5rem] sm:text-[5rem] md:text-[8rem] lg:text-[10rem] font-bold uppercase leading-none select-none pointer-events-none whitespace-nowrap animate-fade-in"
               style={{
                 WebkitTextStroke: '1px rgba(255, 255, 255, 0.1)',
                 color: 'transparent'
