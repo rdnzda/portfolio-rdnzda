@@ -50,7 +50,6 @@ export default function BiographieSection({
     { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
     { name: "Git", icon: SiGit, color: "#F05032" },
     { name: "Python", icon: SiPython, color: "#3776AB" },
-    { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
   ],
   experience = [
     { year: "2024", title: "Formation Développeur & Intégrateur Web", description: "Certification professionnelle enregistrée au Répertoire National des Certifications Professionnelles au niveau 5 (code 326t) par décision de France compétences publiée le 15 décembre 2021.", company: "OpenClassrooms" },
@@ -182,15 +181,13 @@ export default function BiographieSection({
                 {skills.map((skill, index) => (
                   <div
                     key={`b-${index}`}
-                    className="group flex items-center gap-4 px-5 py-3 border border-white/10 rounded-full hover:border-white/40 hover:bg-white/5 transition-all duration-300 cursor-pointer whitespace-nowrap"
+                    className="group flex items-center gap-4 px-5 py-3 rounded-full transition-all duration-300 cursor-pointer whitespace-nowrap"
                   >
                     <skill.icon 
                       className="w-5 h-5 text-zinc-400 transition-all duration-300"
                       style={{ 
-                        color: undefined 
+                        color: skill.color || '#fff' 
                       }}
-                      onMouseEnter={(e) => e.currentTarget.style.color = skill.color || '#fff'}
-                      onMouseLeave={(e) => e.currentTarget.style.color = ''}
                     />
                     <span className="text-zinc-300 text-sm uppercase tracking-widest group-hover:text-white transition-colors duration-300">
                       {skill.name}
@@ -211,9 +208,9 @@ export default function BiographieSection({
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: "2+", label: "Années d'expérience" },
+              { value: "3+", label: "Années de Pratique" },
               { value: "10+", label: "Projets réalisés" },
-              { value: "5+", label: "Clients satisfaits" },
+              { value: "100%", label: "Engagé" },
               { value: "∞", label: "Passion", rotate: true },
             ].map((stat, index) => (
               <div 
