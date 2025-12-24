@@ -14,7 +14,7 @@ export default function BackgroundLayout({ children, showNav = true }: Backgroun
       <div className="fixed inset-0 z-0 overflow-hidden">
         {/* Image de fond avec animation drift */}
         <Image
-          src="/img/bg.jpg"
+          src="/img/bg6.jpg"
           alt="Background"
           fill
           priority
@@ -22,10 +22,10 @@ export default function BackgroundLayout({ children, showNav = true }: Backgroun
           className="object-cover scale-110 animate-drift"
           sizes="100vw"
         />
-        {/* Overlay sombre */}
-        <div className="absolute inset-0 bg-black/50"></div>
+
+        <div className="absolute inset-0 bg-black/20"></div>
         {/* Le flou */}
-        <div className="absolute inset-0 backdrop-blur-[8px]"></div>
+        <div className="absolute inset-0 backdrop-blur-[12px]"></div>
         {/* Dégradé */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
       </div>
@@ -37,14 +37,19 @@ export default function BackgroundLayout({ children, showNav = true }: Backgroun
           
           {/* Navigation Desktop */}
           <div className="space-x-6 sm:space-x-8 hidden md:flex">
-            <Link href="#biographie" className="cursor-pointer hover:text-white transition-all duration-300 hover:tracking-[0.2em]">Biographie</Link>
             <Link href="#projets" className="cursor-pointer hover:text-white transition-all duration-300 hover:tracking-[0.2em]">Projets</Link>
+            <Link href="#services" className="cursor-pointer hover:text-white transition-all duration-300 hover:tracking-[0.2em]">Services</Link>
+            <Link href="#biographie" className="cursor-pointer hover:text-white transition-all duration-300 hover:tracking-[0.2em]">Biographie</Link>
+            <Link href="#contact" className="cursor-pointer hover:text-white transition-all duration-300 hover:tracking-[0.2em]">Contact</Link>
+            
           </div>
 
           {/* Navigation Mobile - Liens simplifiés */}
           <div className="flex gap-4 md:hidden">
-            <Link href="#biographie" className="text-[10px] hover:text-white transition-colors">Bio</Link>
             <Link href="#projets" className="text-[10px] hover:text-white transition-colors">Projets</Link>
+            <Link href="#services" className="text-[10px] hover:text-white transition-colors">Services</Link>
+            <Link href="#biographie" className="text-[10px] hover:text-white transition-colors">Bio</Link>
+            <Link href="#contact" className="text-[10px] hover:text-white transition-colors">Contact</Link>
           </div>
         </nav>
       )}

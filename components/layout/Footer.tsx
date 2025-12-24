@@ -16,11 +16,10 @@ interface FooterProps {
 
 export default function Footer({
   name = "RDNZDA",
-  email = "contact@rdnzda.dev",
+  email = "akunzada.redean.pro@gmail.com",
   socials = {
     github: "https://github.com/rdnzda",
-    linkedin: "https://linkedin.com/in/rdnzda",
-    twitter: "https://x.com/rdnzda",
+    linkedin: "https://www.linkedin.com/in/redean-akunzada/"
   },
 }: FooterProps) {
   
@@ -53,13 +52,16 @@ export default function Footer({
               Navigation
             </h4>
             <nav className="flex flex-col gap-2">
-              <Link href="#biographie" className="text-zinc-500 text-sm hover:text-white transition-colors duration-300">
-                Biographie
-              </Link>
               <Link href="#projets" className="text-zinc-500 text-sm hover:text-white transition-colors duration-300">
                 Projets
               </Link>
-              <Link href={`mailto:${email}`} className="text-zinc-500 text-sm hover:text-white transition-colors duration-300">
+              <Link href="#services" className="text-zinc-500 text-sm hover:text-white transition-colors duration-300">
+                Services
+              </Link>
+              <Link href="#biographie" className="text-zinc-500 text-sm hover:text-white transition-colors duration-300">
+                Biographie
+              </Link>
+              <Link href="#contact" className="text-zinc-500 text-sm hover:text-white transition-colors duration-300">
                 Contact
               </Link>
             </nav>
@@ -98,16 +100,6 @@ export default function Footer({
                   aria-label="LinkedIn"
                 >
                   <FiLinkedin className="w-5 h-5" />
-                </Link>
-              )}
-              {socials.twitter && (
-                <Link
-                  href={socials.twitter}
-                  target="_blank"
-                  className="p-2 text-zinc-500 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
-                  aria-label="X (Twitter)"
-                >
-                  <SiX className="w-4 h-4" />
                 </Link>
               )}
             </div>
