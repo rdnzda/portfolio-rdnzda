@@ -1,43 +1,28 @@
-"use client";
+import { useEffect, useState, useRef } from 'react';
 
-import { useEffect, useRef, useState } from "react";
-
-interface UseInViewOptions {
-  threshold?: number;
-  rootMargin?: string;
-  triggerOnce?: boolean;
-}
-
-export function useInView({
-  threshold = 0.1,
-  rootMargin = "0px",
-  triggerOnce = true,
-}: UseInViewOptions = {}) {
-  const ref = useRef<HTMLElement>(null);
+// <T extends HTMLElement = HTMLDivElement> : C'est la partie magique qui rend le hook flexible
+export function useInView<T extends HTMLElement = HTMLDivElement>(options?: IntersectionObserverInit) {
+  const ref = useRef<T>(null);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          if (triggerOnce) {
-            observer.unobserve(element);
-          }
-        } else if (!triggerOnce) {
-          setIsInView(false);
-        }
-      },
-      { threshold, rootMargin }
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsInView(true);
+        // On arrête d'observer une fois que l'élément est visible (pour l'animation "once")
+        observer.unobserve(element);
+      }
+    }, options);
 
     observer.observe(element);
 
-    return () => observer.disconnect();
-  }, [threshold, rootMargin, triggerOnce]);
+    return () => {
+      if (element) observer.unobserve(element);
+    };
+  }, [options]);
 
   return { ref, isInView };
 }

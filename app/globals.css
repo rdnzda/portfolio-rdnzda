@@ -12,6 +12,11 @@ html {
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: #A1A1AA; /* Gris clair pour les textes secondaires (zinc-400) */
+  --color-border: #27272A; /* Gris foncé pour les bordures subtiles (zinc-800) */
+  --color-primary: #C084FC; /* Violet clair tiré de ton fond pour les accents */
+  --color-secondary: #34D399; /* Vert émeraude pour le badge "Disponible" */
+  --color-input-bg: #18181B; /* Fond des inputs (zinc-900) */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-syncopate: var(--font-syncopate); 
