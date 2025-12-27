@@ -1,43 +1,33 @@
 import { ImageResponse } from "next/og";
 
-// Route segment config
 export const runtime = "edge";
-
-// Image metadata
-export const size = {
-  width: 32,
-  height: 32,
-};
+export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 
-// Image generation
 export default function Icon() {
   return new ImageResponse(
     (
-      // ImageResponse JSX element
       <div
         style={{
-          fontSize: 24,
-          background: "black",
+          background: "#050505", // Fond noir profond
           width: "100%",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "white",
-          borderRadius: "5px", // Légèrement arrondi comme une app mobile
-          fontWeight: 800,
-          fontFamily: 'sans-serif',
+          borderRadius: "0px", // Brutaliste = pas d'arrondi
         }}
       >
-        R
+        {/* Le conteneur de la grille 2x2 */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', width: '18px', height: '18px', gap: '2px' }}>
+            {/* Les 4 "pixels" blancs */}
+            <div style={{ width: '8px', height: '8px', background: 'white' }}></div>
+            <div style={{ width: '8px', height: '8px', background: 'white' }}></div>
+            <div style={{ width: '8px', height: '8px', background: 'white' }}></div>
+            <div style={{ width: '8px', height: '8px', background: 'white' }}></div>
+        </div>
       </div>
     ),
-    // ImageResponse options
-    {
-      // For convenience, we can re-use the exported icons size metadata
-      // config to also set the ImageResponse's width and height.
-      ...size,
-    }
+    { ...size }
   );
 }
