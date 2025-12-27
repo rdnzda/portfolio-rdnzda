@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Syncopate} from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono, Syncopate } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import CustomCursor from "@/components/ui/CustomCursor";
 
+// --- CONFIGURATION DES FONTS ---
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -14,21 +15,74 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const switzer = localFont({
-  src: "../public/fonts/Switzer-Variable.woff2", // Vérifie bien le chemin !
-  display: "swap",
-  variable: "--font-switzer", // On crée une variable CSS
-});
-
 const syncopate = Syncopate({ 
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-syncopate',
 });
 
+const switzer = localFont({
+  src: "../public/fonts/Switzer-Variable.woff2", 
+  display: "swap",
+  variable: "--font-switzer",
+});
+
+// --- SEO & METADATA ---
 export const metadata: Metadata = {
-  title: "Akunzada Redean | Portfolio",
-  description: "Portfolio de Akunzada Redean - Développeur & Créateur",
+  metadataBase: new URL('https://rdnzda.com'),
+  title: {
+    default: "Akunzada Redean | RDNZDA - Creative Developer & Designer",
+    template: "%s | RDNZDA"
+  },
+  description: "Développeur Full-Stack & Designer Web Freelance à Orléans. Expert Next.js, React et Motion Design pour des expériences digitales sur-mesure.",
+  keywords: ["Akunzada Redean", "RDNZDA", "Redean Akunzada", "Développeur Web Orléans", "Freelance Next.js", "Creative Developer", "Site Vitrine"],
+  authors: [{ name: "Redean Akunzada", url: "https://rdnzda.com" }],
+  creator: "Redean Akunzada",
+  
+  // Configuration pour le partage sur les réseaux (LinkedIn, Discord, Twitter)
+  openGraph: {
+    title: "Akunzada Redean | RDNZDA",
+    description: "Creative Developer & Designer basé à Orléans.",
+    url: "https://rdnzda.com",
+    siteName: "RDNZDA Portfolio",
+    locale: "fr_FR",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image.png", // Next.js cherchera cette image automatiquement si tu en crées une plus tard
+        width: 1200,
+        height: 630,
+        alt: "RDNZDA Portfolio Cover",
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+// --- CONFIGURATION MOBILE (Theme Color) ---
+export const viewport: Viewport = {
+  themeColor: "#050505", // La barre du navigateur sera noire comme ton site
+  width: "device-width",
+  initialScale: 1,
+};
+
+// --- DONNÉES STRUCTURÉES (JSON-LD) ---
+// C'est ça qui dit à Google : RDNZDA = Redean Akunzada
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Redean Akunzada",
+  "alternateName": "RDNZDA",
+  "url": "https://rdnzda.com",
+  "jobTitle": "Creative Developer",
+  "image": "https://rdnzda.com/opengraph-image.png",
+  "sameAs": [
+    "https://www.linkedin.com/in/redean-akunzada/",
+    "https://github.com/rdnzda"
+  ]
 };
 
 export default function RootLayout({
@@ -37,10 +91,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${switzer.variable} ${geistMono.variable} ${syncopate.variable} antialiased text-white`}
+        className={`${geistSans.variable} ${switzer.variable} ${geistMono.variable} ${syncopate.variable} antialiased bg-[#050505] text-white selection:bg-[#C084FC] selection:text-black`}
       >
+        {/* Script JSON-LD pour le SEO Sémantique */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
         <CustomCursor />
         {children}
       </body>
