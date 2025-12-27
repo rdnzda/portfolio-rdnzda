@@ -125,3 +125,9 @@ body {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+
+@media (pointer: fine) {
+  body, a, button, input, textarea {
+    cursor: none !important;
+  }
+}

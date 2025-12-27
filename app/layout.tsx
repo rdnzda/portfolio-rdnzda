@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Syncopate} from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import CustomCursor from "@/components/ui/CustomCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${switzer.variable} ${geistMono.variable} ${syncopate.variable} antialiased text-white`}
       >
+        <CustomCursor />
         {children}
       </body>
     </html>
