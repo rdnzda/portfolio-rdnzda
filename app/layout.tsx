@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Syncopate} from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,6 +13,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const switzer = localFont({
+  src: "../public/fonts/Switzer-Variable.woff2", // Vérifie bien le chemin !
+  display: "swap",
+  variable: "--font-switzer", // On crée une variable CSS
+});
+
 const syncopate = Syncopate({ 
   subsets: ['latin'],
   weight: ['400', '700'],
@@ -19,8 +26,8 @@ const syncopate = Syncopate({
 });
 
 export const metadata: Metadata = {
-  title: "RDNZDA | Portfolio",
-  description: "Portfolio de RDNZDA - Développeur & Créateur",
+  title: "Akunzada Redean | Portfolio",
+  description: "Portfolio de Akunzada Redean - Développeur & Créateur",
 };
 
 export default function RootLayout({
@@ -31,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${syncopate.variable} antialiased bg-[#050505] text-white`}
+        className={`${geistSans.variable} ${switzer.variable} ${geistMono.variable} ${syncopate.variable} antialiased text-white`}
       >
         {children}
       </body>

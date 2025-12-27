@@ -2,29 +2,39 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+  font-feature-settings: "cv11", "ss01"; 
+  letter-spacing: -0.03em;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-muted: #A1A1AA; /* Gris clair pour les textes secondaires (zinc-400) */
-  --color-border: #27272A; /* Gris foncé pour les bordures subtiles (zinc-800) */
-  --color-primary: #C084FC; /* Violet clair tiré de ton fond pour les accents */
-  --color-secondary: #34D399; /* Vert émeraude pour le badge "Disponible" */
-  --color-input-bg: #18181B; /* Fond des inputs (zinc-900) */
-  --font-sans: var(--font-geist-sans);
+  --color-muted: #A1A1AA;
+  --color-border: #27272A;
+  --color-primary: #C084FC;
+  --color-secondary: #34D399;
+  --color-input-bg: #18181B;
+  
+  /* --- CONFIGURATION DES FONTS --- */
+  --font-sans: var(--font-geist-sans); 
   --font-mono: var(--font-geist-mono);
   --font-syncopate: var(--font-syncopate); 
+  --font-switzer: var(--font-switzer); 
+
+  /* --- DÉCLARATION DE L'ANIMATION BLOB DANS LE THÈME --- */
+  --animate-blob: blob 10s infinite;
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #050505;
     --foreground: #ededed;
   }
 }
@@ -32,10 +42,43 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-switzer), var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Background drift animation - Desktop only */
+/* === UTILITAIRES PERSONNALISÉS === */
+@layer utilities {
+  
+  /* Délais d'animation */
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  /* Slider Infini */
+  .animate-scroll-left {
+    animation: scroll-left 25s linear infinite;
+  }
+
+  /* --- NOUVEAU : UTILITAIRES SLIDER --- */
+  
+  /* Met en pause l'animation au survol */
+  .hover\:pause:hover {
+    animation-play-state: paused;
+  }
+
+  /* Ajoute un fondu transparent sur les côtés gauche et droit */
+  .mask-gradient-sides {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+}
+
+/* ===== AUTRES ANIMATIONS ===== */
+
+/* Background drift */
 @keyframes drift {
   0% { transform: scale(1.15) translate(0, 0); }
   50% { transform: scale(1.2) translate(-1%, -1%); }
@@ -48,137 +91,37 @@ body {
   transform-origin: center center;
 }
 
-/* ===== ANIMATIONS D'ENTRÉE ===== */
-
 /* Fade In Up */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
-/* Fade In */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Slide In Left */
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Slide In Right */
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Scale In */
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Line Expand */
-@keyframes lineExpand {
-  from { 
-    width: 0;
-    opacity: 0;
-  }
-  to { 
-    width: 5rem;
-    opacity: 1;
-  }
-}
-
-/* Animations avec délais intégrés */
 .animate-fade-in-up {
   opacity: 0;
   animation: fadeInUp 0.8s ease-out 0.1s forwards;
 }
+.animate-fade-in-up-delay-1 { opacity: 0; animation: fadeInUp 0.8s ease-out 0.2s forwards; }
+.animate-fade-in-up-delay-2 { opacity: 0; animation: fadeInUp 0.8s ease-out 0.4s forwards; }
+.animate-fade-in-up-delay-3 { opacity: 0; animation: fadeInUp 0.8s ease-out 0.6s forwards; }
 
-.animate-fade-in-up-delay-1 {
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out 0.2s forwards;
-}
+/* Fade In */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.animate-fade-in { opacity: 0; animation: fadeIn 1s ease-out 0.3s forwards; }
 
-.animate-fade-in-up-delay-2 {
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out 0.4s forwards;
-}
+/* Slide In Right */
+@keyframes slideInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+.animate-slide-in-right { opacity: 0; animation: slideInRight 0.8s ease-out 0.7s forwards; }
 
-.animate-fade-in-up-delay-3 {
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out 0.6s forwards;
-}
+/* Slide In Left */
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+.animate-slide-in-left { opacity: 0; animation: slideInLeft 0.8s ease-out 0.7s forwards; }
 
-.animate-fade-in {
-  opacity: 0;
-  animation: fadeIn 1s ease-out 0.3s forwards;
-}
+/* Line Expand */
+@keyframes lineExpand { from { width: 0; opacity: 0; } to { width: 5rem; opacity: 1; } }
+.animate-line-expand { width: 0; animation: lineExpand 1s ease-out 0.4s forwards; }
 
-.animate-fade-in-delay-1 {
-  opacity: 0;
-  animation: fadeIn 1s ease-out 0.5s forwards;
-}
-
-.animate-slide-in-left {
-  opacity: 0;
-  animation: slideInLeft 0.8s ease-out 0.2s forwards;
-}
-
-.animate-slide-in-right {
-  opacity: 0;
-  animation: slideInRight 0.8s ease-out 0.7s forwards;
-}
-
-.animate-scale-in {
-  opacity: 0;
-  animation: scaleIn 0.6s ease-out 0.1s forwards;
-}
-
-.animate-line-expand {
-  width: 0;
-  animation: lineExpand 1s ease-out 0.4s forwards;
-}
-
-/* ===== SLIDER INFINI ===== */
+/* Scroll Left Keyframes */
 @keyframes scroll-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@layer utilities {
-  .animate-scroll-left {
-    animation: scroll-left 25s linear infinite;
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }

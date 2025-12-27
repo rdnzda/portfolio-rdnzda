@@ -147,57 +147,35 @@ export default function BiographieSection({
 
         </div>
 
-        {/* COMPETENCES / SKILLS EN SLIDER */}      
-        <div className="mt-16 sm:mt-24 pt-10 sm:pt-16 border-t border-white/10 overflow-hidden">
-          <h3 className="text-white font-syncopate text-xs sm:text-sm uppercase tracking-widest mb-6 sm:mb-8">
-            Compétences
-          </h3>
-          
-          {/* Slider infini */}
-          <div className="relative">
+        {/* SLIDER INFINI OPTIMISÉ */}
+        <div className="relative w-full overflow-hidden mask-gradient-sides">
+            {/* mask-gradient-sides est une classe utilitaire optionnelle pour faire un fondu sur les bords */}
             
-            <div className="flex animate-scroll-left">
-              {/* Premier groupe */}
-              <div className="flex mb-1 shrink-0 gap-6 pr-6">
-                {skills.map((skill, index) => (
-                  <div
-                    key={`a-${index}`}
-                    className="group flex items-center gap-4 px-5 py-3 whitespace-nowrap"
-                  >
-                    <skill.icon 
-                      className="w-5 h-5 text-zinc-400 transition-all duration-300"
-                      style={{ 
-                        color: skill.color || '#fff'
-                      }}
-                    />
-                    <span className="text-zinc-300 text-sm uppercase tracking-widest group-hover:text-white transition-colors duration-300">
-                      {skill.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              {/* Deuxième groupe (duplicate pour boucle infinie) */}
-              <div className="flex shrink-0 gap-6 pr-6">
-                {skills.map((skill, index) => (
-                  <div
-                    key={`b-${index}`}
-                    className="group flex items-center gap-4 px-5 py-3 rounded-full transition-all duration-300 cursor-pointer whitespace-nowrap"
-                  >
-                    <skill.icon 
-                      className="w-5 h-5 text-zinc-400 transition-all duration-300"
-                      style={{ 
-                        color: skill.color || '#fff' 
-                      }}
-                    />
-                    <span className="text-zinc-300 text-sm uppercase tracking-widest group-hover:text-white transition-colors duration-300">
-                      {skill.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
+            <div 
+              className="flex w-max animate-scroll-left hover:pause"
+              style={{ animationDuration: '20s' }} // Réglage vitesse ici (20s = plus rapide)
+            >
+              {/* On répète la liste 4 fois pour être sûr que ça boucle parfaitement sur tous les écrans */}
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className="flex shrink-0 gap-8 pr-8">
+                  {skills.map((skill, index) => (
+                    <div
+                      key={`${i}-${index}`}
+                      className="group flex items-center gap-3 px-4 py-2 border border-zinc-800/50 bg-zinc-900/20 rounded-full backdrop-blur-sm hover:border-zinc-700 transition-colors"
+                    >
+                      <skill.icon 
+                        className="w-4 h-4 text-zinc-500 transition-colors duration-300 group-hover:text-white"
+                        style={{ color: skill.color }} // La couleur s'applique direct pour plus de pep's
+                      />
+                      <span className="text-zinc-400 text-xs font-bold uppercase tracking-wider group-hover:text-white transition-colors">
+                        {skill.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
-        </div>
 
         {/* CHIFFRES / STATS (optionnel) */}
         <div 

@@ -1,49 +1,70 @@
+import Link from "next/link";
+import FooterMeta from "../ui/FooterMeta";
+
 export default function HeroSection() {
   return (
-    <section className="relative h-screen w-full flex flex-col justify-center px-4 sm:px-8 lg:px-20">
-      
-      {/* GROUPE TEXTE */}
-      <div className="relative max-w-4xl">
+    <section id="home" className="relative h-screen w-full overflow-hidden">
+        
+        {/* CONTAINER CENTRÉ */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl px-6 text-left lg:text-center">
           
-          {/* TEXTE ARRIÈRE-PLAN (Outlined) - Visible sur tous les écrans */}
-          <h1 
-              className="absolute -top-8 sm:-top-16 md:-top-20 -left-1 sm:-left-4 md:-left-1 text-[3.5rem] sm:text-[5rem] md:text-[8rem] lg:text-[10rem] font-bold uppercase leading-none select-none pointer-events-none whitespace-nowrap animate-fade-in"
-              style={{
-                WebkitTextStroke: '1px rgba(255, 255, 255, 0.1)',
-                color: 'transparent'
-              }}
-          >
-              Akunzada<br /> Redean
-          </h1>
-
-          {/* TITRE PRINCIPAL */}
-          <h2 className="relative font-syncopate text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold uppercase tracking-tighter leading-[0.9] text-white mix-blend-overlay drop-shadow-2xl animate-fade-in-up">
-            RDNZDA
-          </h2>
-          
-          {/* LIGNE & SOUS-TITRE */}
-          <div className="ml-1 sm:ml-3 mt-6 sm:mt-8 flex items-center gap-3 sm:gap-6 relative z-20">
-              <div className="h-[1px] bg-white/60 animate-line-expand"></div>
-              <p className="text-zinc-200 font-syncopate font-bold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-md animate-fade-in-up-delay-2">
-                Développeur & Designer Web
-              </p>
+          {/* TITRE */}
+          <div className="animate-slide-in-left">
+            <h1 className="font-switzer font-bold text-6xl sm:text-[7rem] md:text-[9rem] leading-[0.9] text-white tracking-tight uppercase mb-8">
+              A<span className="italic mr-2.5 sm:mr-3 md:mr-6 text-zinc-500">k</span>unzada <br/>
+              <span className="text-zinc-500">
+                <span className="italic mr-1.5 sm:mr-2 md:mr-4 text-white">R</span>edÆn
+              </span>.
+            </h1>
           </div>
-      </div>
 
-      {/* INDICATEUR SCROLL - Version mobile en bas */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 lg:hidden animate-fade-in-up-delay-3">
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Scroll</span>
-          <div className="w-[1px] h-8 bg-gradient-to-b from-zinc-500 to-transparent animate-pulse"></div>
+          {/* PARAGRAPHE */}
+          <div className="animate-slide-in-right mb-12">
+            <p className="font-switzer text-zinc-400 text-sm sm:text-base max-w-2xl lg:mx-auto leading-relaxed">
+              Développeur Full-Stack & Créateur de solutions digitales <span className="italic hidden sm:inline-block text-white">sur mesure</span>. <br/>
+              J'aide les entreprises à concrétiser leurs idées grâce à des sites web performants.
+            </p>
+          </div>
+
+          {/* --- AJOUT MOBILE : BLOC D'IDENTITÉ TECHNIQUE --- */}
+          <div className="lg:mx-auto w-full max-w-[300px] animate-fade-in-up-delay-2">
+            
+            {/* Petite ligne de séparation esthétique */}
+            <div className="h-[1px] w-16 bg-zinc-800 mb-6"></div>
+
+            {/* La Grille d'Infos */}
+            <div className="grid grid-cols-2 gap-y-6 gap-x-4 text-[10px] font-mono uppercase tracking-widest text-zinc-500">
+                
+                {/* 1. Statut (Avec le point vert qui pulse) */}
+                <div className="flex flex-col gap-2">
+                    <span className="text-zinc-700">Statut</span>
+                    <div className="flex items-center gap-2 text-zinc-200 font-bold">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                        <span>Disponible</span>
+                    </div>
+                </div>
+
+                 {/* 4. Lien vers Portfolio (Subtil) */}
+                 <div className="flex flex-col gap-2">
+                    <span className="text-zinc-700">Index</span>
+                    <Link href="#projets" className="text-white border-b border-zinc-700 hover:border-white transition-colors w-fit pb-0.5">
+                        Voir Projets ↗
+                    </Link>
+                </div>
+
+            </div>
+          </div>
+
         </div>
-      </div>
-
-      {/* TEXTE VERTICAL (Milieu Droite) - Desktop uniquement */}
-      <div className="absolute top-1/2 -translate-y-1/2 right-6 lg:right-10 z-20 hidden lg:block animate-slide-in-right">
-         <div className="text-xs uppercase tracking-[0.3em] text-zinc-500 transition-colors hover:text-zinc-300" style={{ writingMode: 'vertical-rl' }}>
-            Scroller pour découvrir
-         </div>
-      </div>
+        
+        <FooterMeta />
+        
+        <div className="absolute bottom-6 left-6">
+          <span className="text-white font-switzer uppercase cursor-default tracking-widest font-bold text-base sm:text-md">rdnzda</span>
+        </div>
     </section>
   );
 }
