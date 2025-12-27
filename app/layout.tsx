@@ -38,8 +38,7 @@ export const metadata: Metadata = {
   keywords: ["Akunzada Redean", "RDNZDA", "Redean Akunzada", "Développeur Web Orléans", "Freelance Next.js", "Creative Developer", "Site Vitrine"],
   authors: [{ name: "Redean Akunzada", url: "https://rdnzda.com" }],
   creator: "Redean Akunzada",
-  
-  // Configuration pour le partage sur les réseaux (LinkedIn, Discord, Twitter)
+
   openGraph: {
     title: "Akunzada Redean | RDNZDA",
     description: "Creative Developer & Designer basé à Orléans.",
@@ -49,7 +48,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/opengraph-image.png", // Next.js cherchera cette image automatiquement si tu en crées une plus tard
+        url: "/opengraph-image.png", 
         width: 1200,
         height: 630,
         alt: "RDNZDA Portfolio Cover",
@@ -64,13 +63,11 @@ export const metadata: Metadata = {
 
 // --- CONFIGURATION MOBILE (Theme Color) ---
 export const viewport: Viewport = {
-  themeColor: "#050505", // La barre du navigateur sera noire comme ton site
+  themeColor: "#050505", 
   width: "device-width",
   initialScale: 1,
 };
 
-// --- DONNÉES STRUCTURÉES (JSON-LD) ---
-// C'est ça qui dit à Google : RDNZDA = Redean Akunzada
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
