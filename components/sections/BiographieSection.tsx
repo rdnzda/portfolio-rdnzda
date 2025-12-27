@@ -147,13 +147,20 @@ export default function BiographieSection({
 
         </div>
 
-        {/* SLIDER INFINI OPTIMISÉ */}
+        {/* COMPETENCES / SKILLS EN SLIDER */}      
+        <div className="mt-16 sm:mt-24 pt-10 sm:pt-16 border-t border-white/10 overflow-hidden">
+          <h3 className="text-white font-syncopate text-xs sm:text-sm uppercase tracking-widest mb-6 sm:mb-8">
+            Compétences
+          </h3>
+          
+          {/* Slider infini */}
+          {/* SLIDER INFINI OPTIMISÉ */}
         <div className="relative w-full overflow-hidden mask-gradient-sides">
             {/* mask-gradient-sides est une classe utilitaire optionnelle pour faire un fondu sur les bords */}
             
             <div 
               className="flex w-max animate-scroll-left hover:pause"
-              style={{ animationDuration: '20s' }} // Réglage vitesse ici (20s = plus rapide)
+              style={{ animationDuration: '60s' }} // Réglage vitesse ici (20s = plus rapide)
             >
               {/* On répète la liste 4 fois pour être sûr que ça boucle parfaitement sur tous les écrans */}
               {[...Array(4)].map((_, i) => (
@@ -176,6 +183,7 @@ export default function BiographieSection({
               ))}
             </div>
           </div>
+        </div>
 
         {/* CHIFFRES / STATS (optionnel) */}
         <div 
