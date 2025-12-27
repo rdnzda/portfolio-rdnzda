@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio - rdnzda
 
-## Getting Started
+Bienvenue sur mon portfolio personnel créé avec [Next.js](https://nextjs.org).  
+Ce site présente mes projets, compétences, expériences et informations de contact.
 
-First, run the development server:
+👉 Le site est en ligne à l’adresse [rdnzda.com](https://rdnzda.com) (déployé sur la plateforme Vercel).
+
+## Démarrage rapide
+
+Pour lancer ce portfolio en local, suivez ces étapes :
 
 ```bash
+npm install
 npm run dev
-# or
+# ou
+yarn install
 yarn dev
-# or
+# ou
+pnpm install
 pnpm dev
-# or
+# ou
+bun install
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur pour voir le résultat.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structure du projet
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `app/` : pages principales et routage
+- `components/` : composants réutilisables
+- `public/` : ressources publiques (images, icônes, etc.)
+- `styles/` : fichiers de styles CSS/modules
 
-## Learn More
+Vous pouvez modifier le contenu des pages en éditant les fichiers dans le répertoire `app/`.
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies utilisées
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js](https://nextjs.org) — Framework React fullstack moderne
+- [React](https://reactjs.org/) — Bibliothèque pour l’interface utilisateur
+- [TypeScript](https://www.typescriptlang.org/) — Superset typé de JavaScript
+- [Geist](https://vercel.com/font) — Nouvelle police moderne par Vercel
+- [CSS Modules] ou [Tailwind CSS] (à préciser selon votre choix)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Fonctionnalités
 
-## Deploy on Vercel
+- Présentation personnelle
+- Liste des projets et réalisations
+- Visualisation des compétences
+- Liens vers mon CV, mon LinkedIn et mon GitHub
+- Formulaire de contact (si activé)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Déploiement
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Le portfolio est actuellement déployé sur la [plateforme Vercel](https://vercel.com/) et accessible à [rdnzda.com](https://rdnzda.com).
+
+Pour déployer une nouvelle version :  
+[suivre la documentation officielle Next.js](https://nextjs.org/docs/app/building-your-application/deploying)
+
+## À propos
+
+Ce portfolio est open-source. N’hésitez pas à [me contacter](mailto:akunzada.redean.pro@gmail.com) pour toute suggestion ou collaboration !
+
+---
+
+© 2026 rdnzda
