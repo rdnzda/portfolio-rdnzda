@@ -15,8 +15,13 @@ export default function CustomCursor() {
   const isHovering = useRef(false);
 
   useEffect(() => {
-    const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) return;
+    // --- FIX CHROME / EDGE ---
+    // Au lieu de vérifier si c'est tactile, on vérifie si l'utilisateur a un pointeur précis (souris/trackpad).
+    // Cela permet au curseur de marcher sur les PC portables à écran tactile.
+    const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
+    
+    // Si pas de souris précise (ex: mobile pur), on arrête tout.
+    if (!hasFinePointer) return;
 
     const manageMouseMove = (e: MouseEvent) => {
       mouse.current = { x: e.clientX, y: e.clientY };
@@ -32,10 +37,12 @@ export default function CustomCursor() {
     };
 
     const animate = () => {
+      // 1. Animation du point central (Instantané)
       if (dotRef.current) {
         dotRef.current.style.transform = `translate3d(${mouse.current.x}px, ${mouse.current.y}px, 0) translate(-50%, -50%)`;
       }
 
+      // 2. Calcul positions anneaux
       positions.current[0] = { x: mouse.current.x, y: mouse.current.y };
 
       for (let i = 1; i < CIRCLE_COUNT; i++) {
@@ -48,6 +55,7 @@ export default function CustomCursor() {
         };
       }
 
+      // 3. Mise à jour DOM anneaux
       circlesRefs.current.forEach((circle, i) => {
          if (circle) {
            const { x, y } = positions.current[i];
@@ -83,6 +91,8 @@ export default function CustomCursor() {
   };
 
   return (
+    // On garde 'hidden lg:block' par sécurité CSS pour les mobiles,
+    // mais le JS gérera maintenant les PC tactiles correctement.
     <div className="hidden lg:block pointer-events-none fixed inset-0 z-[9999]">
       
       {/* 1. LE POINT CENTRAL (DOT) */}
@@ -100,8 +110,6 @@ export default function CustomCursor() {
         return (
           <div
             key={i}
-            // --- CORRECTION ICI ---
-            // On utilise des accolades { } pour ne rien retourner (void)
             ref={(el) => { circlesRefs.current[i] = el; }} 
             className="fixed top-0 left-0 rounded-full border border-white bg-transparent mix-blend-difference pointer-events-none transition-opacity duration-300"
             style={{
