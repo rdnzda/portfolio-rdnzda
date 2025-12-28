@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const size = { width: 32, height: 32 };
+export const size = { width: 64, height: 64 };
 export const contentType = "image/png";
 
 export default function Icon() {
@@ -19,12 +19,12 @@ export default function Icon() {
         }}
       >
         {/* Le conteneur de la grille 2x2 */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', width: '18px', height: '18px', gap: '2px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', width: '36px', height: '36px', gap: '4px' }}>
             {/* Les 4 "pixels" blancs */}
-            <div style={{ width: '8px', height: '8px', background: 'white' }}></div>
-            <div style={{ width: '8px', height: '8px', background: 'white' }}></div>
-            <div style={{ width: '8px', height: '8px', background: 'white' }}></div>
-            <div style={{ width: '8px', height: '8px', background: 'white' }}></div>
+            <div style={{ width: '16px', height: '16px', background: 'white' }}></div>
+            <div style={{ width: '16px', height: '16px', background: 'white' }}></div>
+            <div style={{ width: '16px', height: '16px', background: 'white' }}></div>
+            <div style={{ width: '16px', height: '16px', background: 'white' }}></div>
         </div>
       </div>
     ),

@@ -38,7 +38,9 @@ export const metadata: Metadata = {
   keywords: ["Akunzada Redean", "RDNZDA", "Redean Akunzada", "Développeur Web Orléans", "Freelance Next.js", "Creative Developer", "Site Vitrine"],
   authors: [{ name: "Redean Akunzada", url: "https://rdnzda.com" }],
   creator: "Redean Akunzada",
-
+  icons: {
+    icon: "/favicon.ico"
+  },
   openGraph: {
     title: "Akunzada Redean | RDNZDA",
     description: "Creative Developer & Designer basé à Orléans.",
