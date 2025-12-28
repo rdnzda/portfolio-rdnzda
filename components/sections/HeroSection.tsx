@@ -11,10 +11,14 @@ export default function HeroSection() {
           {/* TITRE */}
           <div className="animate-slide-in-left">
             <h1 className="font-switzer font-bold text-6xl sm:text-[7rem] md:text-[9rem] leading-[0.9] text-white tracking-tight uppercase mb-8">
-              A<span className="italic mr-2.5 sm:mr-3 md:mr-6 text-zinc-500">k</span>unzada <br/>
-              <span className="text-zinc-500">
-                <span className="italic mr-1.5 sm:mr-2 md:mr-4 text-white">R</span>edÆn
-              </span>.
+              A<span className="text-zinc-500">k</span>unzada <br/>
+              <span className="text-white">
+                <span className="italic mr-1.5 sm:mr-2 md:mr-4">R</span>
+                ed
+                <span className="inline-block text-zinc-500 scale-x-[-1]">Æ</span>
+                n
+                <span className="text-zinc-500">.</span>
+              </span>
             </h1>
           </div>
 
