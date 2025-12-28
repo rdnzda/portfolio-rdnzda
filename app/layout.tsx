@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Syncopate } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import CustomCursor from "@/components/ui/CustomCursor";
+import { Analytics } from "@vercel/analytics/next"
 
 // --- CONFIGURATION DES FONTS ---
 const geistSans = Geist({
@@ -99,7 +100,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-
+        <Analytics />
         <CustomCursor />
         {children}
       </body>

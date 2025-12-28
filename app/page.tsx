@@ -10,11 +10,13 @@ import { Contact } from "lucide-react";
 export default function Home() {
   return (
     <BackgroundLayout>
-      <HeroSection />
-      <ProjetsSection />
-      <ServicesSection />
-      <BiographieSection />
-      <ContactSection />
+      <main>
+        <HeroSection />
+        <ProjetsSection />
+        <ServicesSection />
+        <BiographieSection />
+        <ContactSection />
+      </main>
       <Footer />
     </BackgroundLayout>
   );

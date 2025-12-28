@@ -41,27 +41,27 @@ export default function Footer({
             <Link href="/" className="text-white font-syncopate font-bold text-2xl hover:text-zinc-300 transition-colors duration-300">
               {name}
             </Link>
-            <p className="text-zinc-500 text-sm leading-relaxed">
+            <p className="text-zinc-400 text-sm leading-relaxed">
               Développeur & Designer Web passionné par la création d&apos;expériences digitales uniques.
             </p>
           </div>
 
           {/* COLONNE 2 - NAVIGATION */}
           <div className="space-y-4">
-            <h4 className="text-white font-syncopate text-xs uppercase tracking-widest">
+            <h2 className="text-white font-syncopate text-xs uppercase tracking-widest">
               Navigation
-            </h4>
+            </h2>
             <nav className="flex flex-col gap-2">
-              <Link href="#projets" className="text-zinc-500 text-sm hover:text-white transition-colors duration-300">
+              <Link href="#projets" className="text-zinc-400 text-sm hover:text-white transition-colors duration-300">
                 Projets
               </Link>
-              <Link href="#services" className="text-zinc-500 text-sm hover:text-white transition-colors duration-300">
+              <Link href="#services" className="text-zinc-400 text-sm hover:text-white transition-colors duration-300">
                 Services
               </Link>
-              <Link href="#biographie" className="text-zinc-500 text-sm hover:text-white transition-colors duration-300">
+              <Link href="#biographie" className="text-zinc-400 text-sm hover:text-white transition-colors duration-300">
                 Biographie
               </Link>
-              <Link href="#contact" className="text-zinc-500 text-sm hover:text-white transition-colors duration-300">
+              <Link href="#contact" className="text-zinc-400 text-sm hover:text-white transition-colors duration-300">
                 Contact
               </Link>
             </nav>
@@ -69,12 +69,12 @@ export default function Footer({
 
           {/* COLONNE 3 - CONTACT & SOCIALS */}
           <div className="space-y-4">
-            <h4 className="text-white font-syncopate text-xs uppercase tracking-widest">
+            <h2 className="text-white font-syncopate text-xs uppercase tracking-widest">
               Contact
-            </h4>
+            </h2>
             <Link 
               href={`mailto:${email}`} 
-              className="flex items-center gap-2 text-zinc-500 text-sm hover:text-white transition-colors duration-300 group"
+              className="flex items-center gap-2 text-zinc-400 text-sm hover:text-white transition-colors duration-300 group"
             >
               <FiMail className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
               {email}
@@ -86,7 +86,7 @@ export default function Footer({
                 <Link
                   href={socials.github}
                   target="_blank"
-                  className="p-2 text-zinc-500 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
+                  className="p-2 text-zinc-400 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
                   aria-label="GitHub"
                 >
                   <FiGithub className="w-5 h-5" />
@@ -96,7 +96,7 @@ export default function Footer({
                 <Link
                   href={socials.linkedin}
                   target="_blank"
-                  className="p-2 text-zinc-500 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
+                  className="p-2 text-zinc-400 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
                   aria-label="LinkedIn"
                 >
                   <FiLinkedin className="w-5 h-5" />
@@ -113,14 +113,14 @@ export default function Footer({
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           
           {/* COPYRIGHT */}
-          <p className="text-zinc-600 text-[10px] sm:text-xs uppercase tracking-widest text-center sm:text-left">
+          <p className="text-zinc-400 text-[10px] sm:text-xs uppercase tracking-widest text-center sm:text-left">
             © {currentYear} {name}. Tous droits réservés.
           </p>
 
           {/* BOUTON RETOUR EN HAUT */}
           <button
             onClick={scrollToTop}
-            className="group flex items-center gap-2 text-zinc-500 text-[10px] sm:text-xs uppercase tracking-widest hover:text-white transition-colors duration-300"
+            className="group flex items-center gap-2 text-zinc-400 text-[10px] sm:text-xs uppercase tracking-widest hover:text-white transition-colors duration-300"
           >
             <span className="hidden sm:inline">Retour en haut</span>
             <span className="sm:hidden">Haut</span>

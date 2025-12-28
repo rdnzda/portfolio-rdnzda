@@ -9,6 +9,7 @@ import {
     ArrowRight,
     Send
 } from "lucide-react";
+import Link from "next/link";
 
 export default function ContactSection() {
     const { ref, isInView } = useInView({ threshold: 0.2 });
@@ -81,8 +82,8 @@ export default function ContactSection() {
 
                             {/* Réseaux Sociaux */}
                             <div className="flex gap-4 px-6 pt-4 border-t border-white/5">
-                                <a href="https://github.com/rdnzda" target="_blank" className="text-foreground hover:text-foreground transition-colors"><Github className="w-5 h-5" /></a>
-                                <a href="https://linkedin.com/in/redean-akunzada" target="_blank" className="text-foreground hover:text-foreground transition-colors"><Linkedin className="w-5 h-5" /></a>
+                                <Link aria-label="github" href="https://github.com/rdnzda" target="_blank" className="text-foreground hover:text-foreground transition-colors"><Github className="w-5 h-5" /></Link>
+                                <Link aria-label="linkedin" href="https://linkedin.com/in/redean-akunzada" target="_blank" className="text-foreground hover:text-foreground transition-colors"><Linkedin className="w-5 h-5" /></Link>
                             </div>
                         </div>
                     </div>
@@ -126,8 +127,9 @@ export default function ContactSection() {
 
                             {/* Sujet */}
                             <div className="space-y-2 mb-6">
-                                <label className="text-xs uppercase tracking-wider text-foreground/60 font-bold ml-1">Sujet</label>
+                                <label htmlFor="subject" className="text-xs uppercase tracking-wider text-foreground/60 font-bold ml-1">Sujet</label>
                                 <select
+                                    id="subject"
                                     name="subject" /* IMPORTANT */
                                     className="w-full bg-zinc-900/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-foreground/50 focus:bg-zinc-900 transition-all font-sans appearance-none cursor-pointer"
                                 >

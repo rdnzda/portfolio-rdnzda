@@ -185,7 +185,7 @@ export default function ProjetsSection({
                     Site vitrine complet pour un centre de rénovation. Calculateur de prix, animations, et conformité légale (RGPD/CGV).
                   </p>
                 </div>
-                <Link href="https://onyx-detailling.vercel.app/" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-[#C5A086] hover:text-black transition-all group-hover:scale-110 shrink-0">
+                <Link href="https://onyx-detailling.vercel.app/" aria-label="Onyx Detailing" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-[#C5A086] hover:text-black transition-all group-hover:scale-110 shrink-0">
                   <FiArrowUpRight className="w-5 h-5" />
                 </Link>
               </div>
@@ -215,7 +215,9 @@ export default function ProjetsSection({
                     <h3 className="text-white font-display text-lg font-bold uppercase tracking-wide">Portfolio</h3>
                     <span className="text-[10px] text-zinc-500 uppercase tracking-wider">Personal Branding</span>
                 </div>
-                <Link href="#" className="p-1.5 bg-white/5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"><FiArrowUpRight className="w-3.5 h-3.5 text-white" /></Link>
+                <Link href="#" aria-label="Portfolio Link" className="p-3 bg-white/5 rounded-full hover:bg-[#C5A086] hover:text-black transition-all group-hover:scale-110 shrink-0">
+                  <FiArrowUpRight className="w-5 h-5 text-white" />
+                </Link>
               </div>
               
               <div className="flex-1 flex items-center justify-center">
