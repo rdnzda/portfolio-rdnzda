@@ -215,7 +215,7 @@ export default function ProjetsSection({
                     <h3 className="text-white font-display text-lg font-bold uppercase tracking-wide">Portfolio</h3>
                     <span className="text-[10px] text-zinc-500 uppercase tracking-wider">Personal Branding</span>
                 </div>
-                <Link href="#" aria-label="Portfolio Link" className="p-3 bg-white/5 rounded-full hover:bg-[#C5A086] hover:text-black transition-all group-hover:scale-110 shrink-0">
+                <Link href="#" aria-label="Portfolio Link" className="p-3 bg-white/5 rounded-full hover:bg-purple-500/10 hover:text-black transition-all group-hover:scale-110 shrink-0">
                   <FiArrowUpRight className="w-5 h-5 text-white" />
                 </Link>
               </div>

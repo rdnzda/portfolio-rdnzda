@@ -9,7 +9,7 @@ export default function HeroSection() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl px-6 text-left lg:text-center">
           
           {/* TITRE */}
-          <div className="animate-slide-in-left">
+          <div className="animate-fade-in-up">
             <h1 className="font-switzer font-bold text-6xl sm:text-[7rem] md:text-[9rem] leading-[0.9] text-white tracking-tight uppercase mb-8">
               A<span className="text-zinc-500">k</span>unzada <br/>
               <span className="text-white">
@@ -23,7 +23,7 @@ export default function HeroSection() {
           </div>
 
           {/* PARAGRAPHE */}
-          <div className="animate-slide-in-right mb-12">
+          <div className="animate-fade-in-up mb-12">
             <p className="font-switzer text-zinc-400 text-sm sm:text-base max-w-2xl lg:mx-auto leading-relaxed">
               Développeur Full-Stack & Créateur de solutions digitales <span className="italic hidden sm:inline-block text-white">sur mesure</span>. <br/>
               J'aide les entreprises à concrétiser leurs idées grâce à des sites web performants.
