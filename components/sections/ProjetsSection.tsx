@@ -162,7 +162,7 @@ export default function ProjetsSection({
               {subtitle}
             </span>
           </div>
-          <h2 className="font-display text-3xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tighter text-white mb-10 sm:mb-16">
+          <h2 className="font-syncopate text-3xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tighter text-white mb-10 sm:mb-16">
             {title}
           </h2>
         </div>
