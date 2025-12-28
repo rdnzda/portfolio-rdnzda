@@ -32,7 +32,7 @@ const switzer = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL('https://rdnzda.com'),
   title: {
-    default: "Akunzada Redean | RDNZDA - Creative Developer & Designer",
+    default: "Redean Akunzada | RDNZDA - Creative Developer & Designer",
     template: "%s | RDNZDA"
   },
   description: "Développeur Full-Stack & Designer Web Freelance à Orléans. Expert Next.js, React et Motion Design pour des expériences digitales sur-mesure.",
