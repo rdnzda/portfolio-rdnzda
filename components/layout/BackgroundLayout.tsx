@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import AuroraBackground from "../ui/AuroraBackground";
+import { Spotlight, GridBackground } from "../ui/spotlight-new";
 
 interface BackgroundLayoutProps {
   children: React.ReactNode;
@@ -110,7 +110,11 @@ export default function BackgroundLayout({ children, showNav = true }: Backgroun
         </nav>
       )}
 
-      <AuroraBackground />
+      {/* BACKGROUND GLOBAL */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <GridBackground />
+        <Spotlight />
+      </div>
 
       {/* CONTENU */}
       <div className="relative z-10">

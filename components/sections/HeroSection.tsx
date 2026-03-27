@@ -4,7 +4,7 @@ import FooterMeta from "../ui/FooterMeta";
 export default function HeroSection() {
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden">
-        
+
         {/* CONTAINER CENTRÉ */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl px-6 text-left lg:text-center">
           

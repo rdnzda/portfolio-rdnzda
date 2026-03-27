@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useInView } from "@/hooks/useInView"; 
+import { useInView } from "@/hooks/useInView";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { FiGithub, FiArrowUpRight, FiCheck, FiZap, FiLayout, FiSmartphone } from "react-icons/fi";
 import { 
   SiReact, 
@@ -171,107 +172,106 @@ export default function ProjetsSection({
         <div ref={bentoRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[220px]">
           
           {/* --- 1. PROJET STAR : ONYX DETAILING (2x2) --- */}
-          <div className={`group relative md:col-span-2 lg:col-span-2 lg:row-span-2 bg-[#0F0F0F] border border-white/10 rounded-2xl p-6 overflow-hidden transition-all duration-700 hover:border-[#C5A086]/50 hover:bg-[#141414] ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}>
-            <div className="flex flex-col h-full relative z-10">
-              <div className="flex items-start justify-between mb-2">
-                <div>
-                  <div className="flex items-center gap-3 mb-1">
-                    <h3 className="text-white font-display text-xl sm:text-2xl font-bold uppercase tracking-wide">
-                      ONYX Detailing
-                    </h3>
-                    <span className="px-2 py-0.5 bg-foreground text-background text-[10px] font-bold uppercase rounded-full">Client</span>
+          <div className={`group relative md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-2xl border border-white/10 p-[3px] transition-all duration-700 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}>
+            <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
+            <div className="relative h-full bg-zinc-900/60 rounded-[calc(1rem-3px)] p-6 overflow-hidden transition-all duration-700 hover:bg-zinc-900/80">
+              <div className="flex flex-col h-full relative z-10">
+                <div className="flex items-start justify-between mb-2">
+                  <div>
+                    <div className="flex items-center gap-3 mb-1">
+                      <h3 className="text-white font-display text-xl sm:text-2xl font-bold uppercase tracking-wide">
+                        ONYX Detailing
+                      </h3>
+                      <span className="px-2 py-0.5 bg-foreground text-background text-[10px] font-bold uppercase rounded-full">Client</span>
+                    </div>
+                    <p className="text-zinc-400 text-sm max-w-sm leading-relaxed hidden sm:block">
+                      Site vitrine complet pour un centre de rénovation. Calculateur de prix, animations, et conformité légale (RGPD/CGV).
+                    </p>
                   </div>
-                  <p className="text-zinc-400 text-sm max-w-sm leading-relaxed hidden sm:block">
-                    Site vitrine complet pour un centre de rénovation. Calculateur de prix, animations, et conformité légale (RGPD/CGV).
-                  </p>
+                  <Link href="https://onyx-detailling.vercel.app/" aria-label="Onyx Detailing" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-[#C5A086] hover:text-black transition-all group-hover:scale-110 shrink-0">
+                    <FiArrowUpRight className="w-5 h-5" />
+                  </Link>
                 </div>
-                <Link href="https://onyx-detailling.vercel.app/" aria-label="Onyx Detailing" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-[#C5A086] hover:text-black transition-all group-hover:scale-110 shrink-0">
-                  <FiArrowUpRight className="w-5 h-5" />
-                </Link>
+                <div className="flex-1 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-700 py-2">
+                  <OnyxPreview />
+                </div>
+                <div className="mt-auto pt-2 flex flex-wrap gap-2 relative z-20">
+                  <TechBadge name="Next.js" />
+                  <TechBadge name="Tailwind CSS" />
+                  <TechBadge name="TypeScript" />
+                </div>
               </div>
-
-              {/* Preview */}
-              <div className="flex-1 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-700 py-2">
-                <OnyxPreview />
-              </div>
-
-              {/* Stack */}
-              <div className="mt-auto pt-2 flex flex-wrap gap-2 relative z-20">
-                <TechBadge name="Next.js" />
-                <TechBadge name="Tailwind CSS" />
-                <TechBadge name="TypeScript" />
-              </div>
+              <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-[#C5A086]/10 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none"></div>
             </div>
-            {/* Glow ONYX */}
-            <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-[#C5A086]/10 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none"></div>
           </div>
 
-
           {/* --- 2. PROJET SECONDAIRE : CE PORTFOLIO (1x2 Vertical) --- */}
-          <div className={`group relative lg:row-span-2 bg-zinc-900/60 backdrop-blur-sm border border-white/10 rounded-2xl p-5 overflow-hidden transition-all duration-700 hover:border-white/20 hover:bg-zinc-900/80 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: "100ms" }}>
-            <div className="flex flex-col h-full">
-              <div className="flex items-center justify-between mb-3">
-                <div>
+          <div className={`group relative lg:row-span-2 rounded-2xl border border-white/10 p-[3px] transition-all duration-700 hover:border-white/20 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: "100ms" }}>
+            <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
+            <div className="relative h-full bg-zinc-900/60 rounded-[calc(1rem-3px)] p-5 overflow-hidden transition-all duration-700 hover:bg-zinc-900/80">
+              <div className="flex flex-col h-full">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
                     <h3 className="text-white font-display text-lg font-bold uppercase tracking-wide">Portfolio</h3>
                     <span className="text-[10px] text-zinc-500 uppercase tracking-wider">Personal Branding</span>
+                  </div>
+                  <Link href="#" aria-label="Portfolio Link" className="p-3 bg-white/5 rounded-full hover:bg-purple-500/10 hover:text-black transition-all group-hover:scale-110 shrink-0">
+                    <FiArrowUpRight className="w-5 h-5 text-white" />
+                  </Link>
                 </div>
-                <Link href="#" aria-label="Portfolio Link" className="p-3 bg-white/5 rounded-full hover:bg-purple-500/10 hover:text-black transition-all group-hover:scale-110 shrink-0">
-                  <FiArrowUpRight className="w-5 h-5 text-white" />
-                </Link>
-              </div>
-              
-              <div className="flex-1 flex items-center justify-center">
+                <div className="flex-1 flex items-center justify-center">
                   <PortfolioMockup />
-              </div>
-              
-              <p className="text-zinc-500 text-xs mt-4 mb-3 leading-relaxed">
+                </div>
+                <p className="text-zinc-500 text-xs mt-4 mb-3 leading-relaxed">
                   Design sombre, Bento Grid, Micro-interactions et animations Framer Motion.
-              </p>
-
-              <div className="flex flex-wrap gap-1.5 mt-auto">
+                </p>
+                <div className="flex flex-wrap gap-1.5 mt-auto">
                   <TechBadge name="React" />
                   <TechBadge name="Framer Motion" />
+                </div>
               </div>
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </div>
 
           {/* --- 3. PERFORMANCE & SEO (Compétence) --- */}
-          <div className={`group relative bg-zinc-900/60 backdrop-blur-sm border border-white/10 rounded-2xl p-5 overflow-hidden transition-all duration-700 hover:border-white/20 hover:bg-zinc-900/80 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: "200ms" }}>
-            <div className="flex flex-col h-full justify-between">
-              <h3 className="text-white font-display text-sm font-bold uppercase tracking-wide flex items-center gap-2">
-                <FiZap className="text-emerald-400" /> Performance
-              </h3>
-              
-              <div className="flex-1 flex items-center justify-center">
+          <div className={`group relative rounded-2xl border border-white/10 p-[3px] transition-all duration-700 hover:border-white/20 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: "200ms" }}>
+            <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
+            <div className="relative h-full bg-zinc-900/60 rounded-[calc(1rem-3px)] p-5 overflow-hidden transition-all duration-700 hover:bg-zinc-900/80">
+              <div className="flex flex-col h-full justify-between">
+                <h3 className="text-white font-display text-sm font-bold uppercase tracking-wide flex items-center gap-2">
+                  <FiZap className="text-emerald-400" /> Performance
+                </h3>
+                <div className="flex-1 flex items-center justify-center">
                   <LighthousePreview />
+                </div>
+                <p className="text-[10px] text-zinc-500 text-center">Scores Lighthouse optimisés</p>
               </div>
-              
-              <p className="text-[10px] text-zinc-500 text-center">Scores Lighthouse optimisés</p>
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </div>
 
           {/* --- 4. STACK TECHNIQUE (Résumé) --- */}
-          <div className={`group relative md:col-span-2 bg-zinc-900/60 backdrop-blur-sm border border-white/10 rounded-2xl p-5 overflow-hidden transition-all duration-700 hover:border-white/20 hover:bg-zinc-900/80 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: "300ms" }}>
-            <div className="flex flex-col h-full">
-              <div className="flex items-center justify-between mb-4">
-                 <h3 className="text-white font-display text-sm font-bold uppercase tracking-wide">Stack Technique</h3>
-                 <span className="text-[10px] text-zinc-500">2024 - 2025</span>
-              </div>
-
-              <div className="flex-1 flex items-center justify-center">
-                <div className="flex flex-wrap gap-4 justify-center">
-                  {Object.entries(techIcons).slice(0, 5).map(([name, { icon: Icon, color }]) => (
-                    <div key={name} className="p-3 bg-white/5 rounded-xl border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 group/icon">
-                      <Icon className="w-6 h-6 transition-colors duration-300 grayscale group-hover/icon:grayscale-0" style={{ color: "inherit" }} />
-                      {/* Note: Pour la couleur au survol, on laisse le style inline gérer ou on retire le grayscale */}
-                    </div>
-                  ))}
+          <div className={`group relative md:col-span-2 rounded-2xl border border-white/10 p-[3px] transition-all duration-700 hover:border-white/20 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: "300ms" }}>
+            <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
+            <div className="relative h-full bg-zinc-900/60 rounded-[calc(1rem-3px)] p-5 overflow-hidden transition-all duration-700 hover:bg-zinc-900/80">
+              <div className="flex flex-col h-full">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-white font-display text-sm font-bold uppercase tracking-wide">Stack Technique</h3>
+                  <span className="text-[10px] text-zinc-500">2024 - 2025</span>
+                </div>
+                <div className="flex-1 flex items-center justify-center">
+                  <div className="flex flex-wrap gap-4 justify-center">
+                    {Object.entries(techIcons).slice(0, 5).map(([name, { icon: Icon, color }]) => (
+                      <div key={name} className="p-3 bg-white/5 rounded-xl border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 group/icon">
+                        <Icon className="w-6 h-6 transition-colors duration-300 grayscale group-hover/icon:grayscale-0" style={{ color: "inherit" }} />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
+              <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-80 h-40 bg-cyan-500/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-             <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-80 h-40 bg-cyan-500/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </div>
 
         </div>
