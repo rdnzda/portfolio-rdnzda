@@ -51,7 +51,7 @@ export default function MentionsLegalesPage() {
                                     <div className="mt-2 text-white font-medium">
                                         <p>Redean Akunzada</p>
                                         <p className="text-zinc-400 font-normal text-sm">
-                                            SIRET : <span className="text-white">En cours d'attribution</span>
+                                            SIRET : <span className="text-white">953714524</span>
                                         </p>
                                         <p className="text-zinc-400 font-normal text-sm italic">
                                             99 rue d'Illiers 45000 ORLÉANS
