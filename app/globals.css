@@ -1,25 +1,58 @@
 @import "tailwindcss";
 
+/* ===== TOKENS LIGHT MODE (défaut) ===== */
+:root {
+  --background: #FAFAFA;
+  --foreground: #09090B;
+  --card: #FFFFFF;
+  --card-foreground: #09090B;
+  --muted: #E4E4E7;
+  --muted-foreground: #64748B;
+  --border: #E4E4E7;
+  --input-bg: #F4F4F5;
+  --nav-bg: rgba(250, 250, 250, 0.88);
+  --grid-color: rgba(0, 0, 0, 0.055);
+}
+
+/* ===== TOKENS DARK MODE ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #050505;
+    --foreground: #ededed;
+    --card: #111113;
+    --card-foreground: #ededed;
+    --muted: #27272A;
+    --muted-foreground: #A1A1AA;
+    --border: #27272A;
+    --input-bg: #18181B;
+    --nav-bg: rgba(10, 10, 10, 0.85);
+    --grid-color: rgba(255, 255, 255, 0.04);
+  }
+}
+
 html {
   scroll-behavior: smooth;
-  font-feature-settings: "cv11", "ss01"; 
+  font-feature-settings: "cv11", "ss01";
   letter-spacing: -0.03em;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-muted: #A1A1AA;
-  --color-border: #27272A;
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input-bg: var(--input-bg);
   --color-primary: #C084FC;
   --color-secondary: #34D399;
-  --color-input-bg: #18181B;
-  
+
   /* --- CONFIGURATION DES FONTS --- */
-  --font-sans: var(--font-geist-sans); 
+  --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-syncopate: var(--font-syncopate); 
-  --font-switzer: var(--font-switzer); 
+  --font-syncopate: var(--font-syncopate);
+  --font-switzer: var(--font-switzer);
 
   /* --- DÉCLARATION DE L'ANIMATION BLOB DANS LE THÈME --- */
   --animate-blob: blob 10s infinite;
@@ -29,13 +62,6 @@ html {
     33% { transform: translate(30px, -50px) scale(1.1); }
     66% { transform: translate(-20px, 20px) scale(0.9); }
     100% { transform: translate(0px, 0px) scale(1); }
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #050505;
-    --foreground: #ededed;
   }
 }
 
@@ -129,5 +155,15 @@ body {
 @media (pointer: fine) {
   body, a, button, input, textarea {
     cursor: none !important;
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

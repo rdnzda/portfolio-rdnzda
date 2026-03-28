@@ -96,9 +96,9 @@ export default function CustomCursor() {
     <div className="hidden lg:block pointer-events-none fixed inset-0 z-[9999]">
       
       {/* 1. LE POINT CENTRAL (DOT) */}
-      <div 
+      <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-1.5 h-1.5 bg-white rounded-full mix-blend-difference pointer-events-none z-[9999]"
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-foreground rounded-full pointer-events-none z-[9999]"
         style={{
             transform: 'translate3d(-100px, -100px, 0)'
         }}
@@ -110,8 +110,8 @@ export default function CustomCursor() {
         return (
           <div
             key={i}
-            ref={(el) => { circlesRefs.current[i] = el; }} 
-            className="fixed top-0 left-0 rounded-full border border-white bg-transparent mix-blend-difference pointer-events-none transition-opacity duration-300"
+            ref={(el) => { circlesRefs.current[i] = el; }}
+            className="fixed top-0 left-0 rounded-full border border-foreground bg-transparent pointer-events-none transition-opacity duration-300"
             style={{
               width: style.width,
               height: style.height,

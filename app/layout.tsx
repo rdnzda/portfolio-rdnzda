@@ -66,7 +66,10 @@ export const metadata: Metadata = {
 
 // --- CONFIGURATION MOBILE (Theme Color) ---
 export const viewport: Viewport = {
-  themeColor: "#050505", 
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FAFAFA" },
+    { media: "(prefers-color-scheme: dark)", color: "#050505" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -93,7 +96,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${switzer.variable} ${geistMono.variable} ${syncopate.variable} antialiased bg-[#050505] text-white selection:bg-[#C084FC] selection:text-black`}
+        className={`${geistSans.variable} ${switzer.variable} ${geistMono.variable} ${syncopate.variable} antialiased selection:bg-[#C084FC] selection:text-black`}
       >
         {/* Script JSON-LD pour le SEO Sémantique */}
         <script

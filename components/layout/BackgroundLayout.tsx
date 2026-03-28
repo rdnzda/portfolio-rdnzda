@@ -38,8 +38,8 @@ export default function BackgroundLayout({ children, showNav = true }: Backgroun
     const isActive = activeSection === sectionId;
     return `cursor-pointer transition-all duration-300 py-1 ${
       isActive
-        ? "text-white border-b border-white"
-        : "text-zinc-400 hover:text-white hover:tracking-[0.2em] border-b border-transparent"
+        ? "text-foreground border-b border-foreground"
+        : "text-zinc-500 dark:text-zinc-400 hover:text-foreground hover:tracking-[0.2em] border-b border-transparent"
     }`;
   };
 
@@ -47,18 +47,18 @@ export default function BackgroundLayout({ children, showNav = true }: Backgroun
     const isActive = activeSection === sectionId;
     return `block w-full text-center py-3 text-sm uppercase tracking-widest transition-all duration-300 ${
       isActive
-        ? "text-white font-bold bg-white/10 rounded-lg"
-        : "text-zinc-400 hover:text-white"
+        ? "text-zinc-900 dark:text-white font-bold bg-zinc-100 dark:bg-white/10 rounded-lg"
+        : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
     }`;
   };
 
   return (
-    <div className="relative min-h-screen w-full text-white overflow-hidden font-sans selection:bg-white selection:text-black">
+    <div className="relative min-h-screen w-full overflow-hidden font-sans">
       
       {/* NAVIGATION DESKTOP (Inchangée - En bas) */}
       {showNav && (
         <nav className="fixed hidden lg:flex bottom-6 w-full px-4 justify-center items-center z-50 text-xs tracking-widest animate-fade-in-up">
-          <div className="items-center space-x-8 bg-[#0a0a0a]/80 px-8 py-3 rounded-full backdrop-blur-md border border-zinc-800/50 shadow-2xl">
+          <div className="items-center space-x-8 bg-white/90 dark:bg-[#0a0a0a]/80 px-8 py-3 rounded-full backdrop-blur-md border border-zinc-200/80 dark:border-zinc-800/50 shadow-2xl shadow-black/5 dark:shadow-2xl">
             <Link href="#home" className={getLinkClasses("home")}>Accueil</Link>
             <Link href="#projets" className={getLinkClasses("projets")}>Projets</Link>
             <Link href="#services" className={getLinkClasses("services")}>Services</Link>
@@ -91,9 +91,9 @@ export default function BackgroundLayout({ children, showNav = true }: Backgroun
           {/* LE MENU DÉPLIANT (La liste) */}
           <div 
             className={`
-                absolute top-[120%] right-0 w-48 
-                bg-[#0a0a0a]/90 backdrop-blur-xl border border-zinc-800 
-                rounded-2xl p-2 shadow-2xl origin-top-right transition-all duration-300 ease-out z-40
+                absolute top-[120%] right-0 w-48
+                bg-white/95 dark:bg-[#0a0a0a]/90 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800
+                rounded-2xl p-2 shadow-2xl shadow-black/10 dark:shadow-2xl origin-top-right transition-all duration-300 ease-out z-40
                 ${isMobileNavOpen ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-90 -translate-y-4 pointer-events-none"}
             `}
           >

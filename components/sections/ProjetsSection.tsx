@@ -33,9 +33,9 @@ function TechBadge({ name }: { name: string }) {
   const color = tech?.color || "#ffffff";
 
   return (
-    <div className="flex items-center gap-1.5 px-2 py-1 bg-white/5 border border-white/10 rounded-md whitespace-nowrap">
+    <div className="flex items-center gap-1.5 px-2 py-1 bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-md whitespace-nowrap">
       {Icon && <Icon className="w-3 h-3" style={{ color }} />}
-      <span className="text-[10px] text-zinc-300">{name}</span>
+      <span className="text-[10px] text-zinc-600 dark:text-zinc-300">{name}</span>
     </div>
   );
 }
@@ -158,12 +158,12 @@ export default function ProjetsSection({
         {/* HEADER */}
         <div ref={headerRef} className={`transition-all duration-700 ${headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="flex items-center gap-4 sm:gap-6 mb-4 group">
-            <div className="h-[1px] w-10 sm:w-16 bg-white/40 transition-all duration-500 group-hover:w-24 group-hover:bg-white/60"></div>
-            <span className="text-zinc-400 text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] group-hover:text-zinc-300 transition-colors">
+            <div className="h-[1px] w-10 sm:w-16 bg-zinc-900/30 dark:bg-white/40 transition-all duration-500 group-hover:w-24 group-hover:bg-zinc-900/50 dark:group-hover:bg-white/60"></div>
+            <span className="text-zinc-500 dark:text-zinc-400 text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
               {subtitle}
             </span>
           </div>
-          <h2 className="font-syncopate text-3xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tighter text-white mb-10 sm:mb-16">
+          <h2 className="font-syncopate text-3xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tighter text-foreground mb-10 sm:mb-16">
             {title}
           </h2>
         </div>
@@ -172,23 +172,23 @@ export default function ProjetsSection({
         <div ref={bentoRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[220px]">
           
           {/* --- 1. PROJET STAR : ONYX DETAILING (2x2) --- */}
-          <div className={`group relative md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-2xl border border-white/10 p-[3px] transition-all duration-700 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}>
+          <div className={`group relative md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-2xl border border-zinc-200/80 dark:border-white/10 p-[3px] transition-all duration-700 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}>
             <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
-            <div className="relative h-full bg-zinc-900/60 rounded-[calc(1rem-3px)] p-6 overflow-hidden transition-all duration-700 hover:bg-zinc-900/80">
+            <div className="relative h-full bg-white dark:bg-zinc-900/60 rounded-[calc(1rem-3px)] p-6 overflow-hidden transition-all duration-700 hover:bg-zinc-50 dark:hover:bg-zinc-900/80">
               <div className="flex flex-col h-full relative z-10">
                 <div className="flex items-start justify-between mb-2">
                   <div>
                     <div className="flex items-center gap-3 mb-1">
-                      <h3 className="text-white font-display text-xl sm:text-2xl font-bold uppercase tracking-wide">
+                      <h3 className="text-zinc-900 dark:text-white font-display text-xl sm:text-2xl font-bold uppercase tracking-wide">
                         ONYX Detailing
                       </h3>
                       <span className="px-2 py-0.5 bg-foreground text-background text-[10px] font-bold uppercase rounded-full">Client</span>
                     </div>
-                    <p className="text-zinc-400 text-sm max-w-sm leading-relaxed hidden sm:block">
+                    <p className="text-zinc-600 dark:text-zinc-400 text-sm max-w-sm leading-relaxed hidden sm:block">
                       Site vitrine complet pour un centre de rénovation. Calculateur de prix, animations, et conformité légale (RGPD/CGV).
                     </p>
                   </div>
-                  <Link href="https://onyx-detailling.vercel.app/" aria-label="Onyx Detailing" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-[#C5A086] hover:text-black transition-all group-hover:scale-110 shrink-0">
+                  <Link href="https://onyx-detailling.vercel.app/" aria-label="Onyx Detailing" target="_blank" className="p-3 bg-zinc-100 dark:bg-white/5 rounded-full hover:bg-[#C5A086] hover:text-black transition-all group-hover:scale-110 shrink-0">
                     <FiArrowUpRight className="w-5 h-5" />
                   </Link>
                 </div>
@@ -206,17 +206,17 @@ export default function ProjetsSection({
           </div>
 
           {/* --- 2. PROJET SECONDAIRE : CE PORTFOLIO (1x2 Vertical) --- */}
-          <div className={`group relative lg:row-span-2 rounded-2xl border border-white/10 p-[3px] transition-all duration-700 hover:border-white/20 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: "100ms" }}>
+          <div className={`group relative lg:row-span-2 rounded-2xl border border-zinc-200/80 dark:border-white/10 p-[3px] transition-all duration-700 hover:border-zinc-300 dark:hover:border-white/20 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: "100ms" }}>
             <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
-            <div className="relative h-full bg-zinc-900/60 rounded-[calc(1rem-3px)] p-5 overflow-hidden transition-all duration-700 hover:bg-zinc-900/80">
+            <div className="relative h-full bg-white dark:bg-zinc-900/60 rounded-[calc(1rem-3px)] p-5 overflow-hidden transition-all duration-700 hover:bg-zinc-50 dark:hover:bg-zinc-900/80">
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between mb-3">
                   <div>
-                    <h3 className="text-white font-display text-lg font-bold uppercase tracking-wide">Portfolio</h3>
+                    <h3 className="text-zinc-900 dark:text-white font-display text-lg font-bold uppercase tracking-wide">Portfolio</h3>
                     <span className="text-[10px] text-zinc-500 uppercase tracking-wider">Personal Branding</span>
                   </div>
-                  <Link href="#" aria-label="Portfolio Link" className="p-3 bg-white/5 rounded-full hover:bg-purple-500/10 hover:text-black transition-all group-hover:scale-110 shrink-0">
-                    <FiArrowUpRight className="w-5 h-5 text-white" />
+                  <Link href="#" aria-label="Portfolio Link" className="p-3 bg-zinc-100 dark:bg-white/5 rounded-full hover:bg-purple-500/10 hover:text-black transition-all group-hover:scale-110 shrink-0">
+                    <FiArrowUpRight className="w-5 h-5 text-zinc-900 dark:text-white" />
                   </Link>
                 </div>
                 <div className="flex-1 flex items-center justify-center">
@@ -235,11 +235,11 @@ export default function ProjetsSection({
           </div>
 
           {/* --- 3. PERFORMANCE & SEO (Compétence) --- */}
-          <div className={`group relative rounded-2xl border border-white/10 p-[3px] transition-all duration-700 hover:border-white/20 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: "200ms" }}>
+          <div className={`group relative rounded-2xl border border-zinc-200/80 dark:border-white/10 p-[3px] transition-all duration-700 hover:border-zinc-300 dark:hover:border-white/20 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: "200ms" }}>
             <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
-            <div className="relative h-full bg-zinc-900/60 rounded-[calc(1rem-3px)] p-5 overflow-hidden transition-all duration-700 hover:bg-zinc-900/80">
+            <div className="relative h-full bg-white dark:bg-zinc-900/60 rounded-[calc(1rem-3px)] p-5 overflow-hidden transition-all duration-700 hover:bg-zinc-50 dark:hover:bg-zinc-900/80">
               <div className="flex flex-col h-full justify-between">
-                <h3 className="text-white font-display text-sm font-bold uppercase tracking-wide flex items-center gap-2">
+                <h3 className="text-zinc-900 dark:text-white font-display text-sm font-bold uppercase tracking-wide flex items-center gap-2">
                   <FiZap className="text-emerald-400" /> Performance
                 </h3>
                 <div className="flex-1 flex items-center justify-center">
@@ -252,18 +252,18 @@ export default function ProjetsSection({
           </div>
 
           {/* --- 4. STACK TECHNIQUE (Résumé) --- */}
-          <div className={`group relative md:col-span-2 rounded-2xl border border-white/10 p-[3px] transition-all duration-700 hover:border-white/20 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: "300ms" }}>
+          <div className={`group relative md:col-span-2 rounded-2xl border border-zinc-200/80 dark:border-white/10 p-[3px] transition-all duration-700 hover:border-zinc-300 dark:hover:border-white/20 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: "300ms" }}>
             <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
-            <div className="relative h-full bg-zinc-900/60 rounded-[calc(1rem-3px)] p-5 overflow-hidden transition-all duration-700 hover:bg-zinc-900/80">
+            <div className="relative h-full bg-white dark:bg-zinc-900/60 rounded-[calc(1rem-3px)] p-5 overflow-hidden transition-all duration-700 hover:bg-zinc-50 dark:hover:bg-zinc-900/80">
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-white font-display text-sm font-bold uppercase tracking-wide">Stack Technique</h3>
+                  <h3 className="text-zinc-900 dark:text-white font-display text-sm font-bold uppercase tracking-wide">Stack Technique</h3>
                   <span className="text-[10px] text-zinc-500">2024 - 2025</span>
                 </div>
                 <div className="flex-1 flex items-center justify-center">
                   <div className="flex flex-wrap gap-4 justify-center">
                     {Object.entries(techIcons).slice(0, 5).map(([name, { icon: Icon, color }]) => (
-                      <div key={name} className="p-3 bg-white/5 rounded-xl border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 group/icon">
+                      <div key={name} className="p-3 bg-zinc-100 dark:bg-white/5 rounded-xl border border-zinc-200 dark:border-white/10 hover:border-zinc-300 dark:hover:border-white/20 hover:bg-zinc-200 dark:hover:bg-white/10 transition-all duration-300 group/icon">
                         <Icon className="w-6 h-6 transition-colors duration-300 grayscale group-hover/icon:grayscale-0" style={{ color: "inherit" }} />
                       </div>
                     ))}
@@ -278,7 +278,7 @@ export default function ProjetsSection({
 
         {/* FOOTER LIEN */}
         <div className="mt-10 sm:mt-16 text-center">
-          <Link href="https://github.com/rdnzda" target="_blank" className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 border border-white/20 rounded-full text-zinc-300 text-xs sm:text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300 group">
+          <Link href="https://github.com/rdnzda" target="_blank" className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 border border-zinc-300 dark:border-white/20 rounded-full text-zinc-600 dark:text-zinc-300 text-xs sm:text-sm uppercase tracking-widest hover:bg-foreground hover:text-background transition-all duration-300 group">
             <FiGithub className="w-4 h-4 sm:w-5 sm:h-5" />
             <span>Voir mon GitHub</span>
           </Link>

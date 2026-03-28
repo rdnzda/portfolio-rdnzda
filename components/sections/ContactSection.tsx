@@ -15,7 +15,7 @@ export default function ContactSection() {
     const { ref, isInView } = useInView({ threshold: 0.2 });
 
     return (
-        <section id="contact" className="relative z-10 py-20 sm:py-32 px-4 sm:px-8 lg:px-20 border-t border-white/5">
+        <section id="contact" className="relative z-10 py-20 sm:py-32 px-4 sm:px-8 lg:px-20 border-t border-zinc-200 dark:border-white/5">
 
             <div className="max-w-6xl mx-auto">
 
@@ -58,15 +58,15 @@ export default function ContactSection() {
                             {/* Email Block */}
                             <a
                                 href="mailto:akunzada.redean.pro@gmail.com"
-                                className="group block p-6 border border-white/10 rounded-2xl bg-zinc-900/30 hover:bg-zinc-900/60 hover:border-foreground/30 transition-all duration-300"
+                                className="group block p-6 border border-zinc-200 dark:border-white/10 rounded-2xl bg-zinc-50 dark:bg-zinc-900/30 hover:bg-zinc-100 dark:hover:bg-zinc-900/60 hover:border-foreground/30 transition-all duration-300"
                             >
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-colors">
+                                        <div className="w-10 h-10 rounded-full bg-zinc-200 dark:bg-white/5 flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-colors">
                                             <Mail className="w-4 h-4" />
                                         </div>
                                         <div>
-                                            <p className="text-[10px] uppercase tracking-wider text-foreground/40 font-bold mb-0.5">M'écrire</p>
+                                            <p className="text-[10px] uppercase tracking-wider text-foreground/40 font-bold mb-0.5">M&apos;écrire</p>
                                             <p className="text-sm font-sans text-foreground">akunzada.redean.pro@gmail.com</p>
                                         </div>
                                     </div>
@@ -81,7 +81,7 @@ export default function ContactSection() {
                             </div>
 
                             {/* Réseaux Sociaux */}
-                            <div className="flex gap-4 px-6 pt-4 border-t border-white/5">
+                            <div className="flex gap-4 px-6 pt-4 border-t border-zinc-200 dark:border-white/5">
                                 <Link aria-label="github" href="https://github.com/rdnzda" target="_blank" className="text-foreground hover:text-foreground transition-colors"><Github className="w-5 h-5" /></Link>
                                 <Link aria-label="linkedin" href="https://linkedin.com/in/redean-akunzada" target="_blank" className="text-foreground hover:text-foreground transition-colors"><Linkedin className="w-5 h-5" /></Link>
                             </div>
@@ -97,7 +97,7 @@ export default function ContactSection() {
                             /* 1. COLLE TON LIEN FORMSPREE ICI */
                             action="https://formspree.io/f/xaqwzggg"
                             method="POST"
-                            className="bg-zinc-900/60 border border-white/5 rounded-3xl p-6 sm:p-8 md:p-10 backdrop-blur-sm shadow-xl"
+                            className="bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-white/5 rounded-3xl p-6 sm:p-8 md:p-10 backdrop-blur-sm shadow-xl"
                         >
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
@@ -109,7 +109,7 @@ export default function ContactSection() {
                                         name="name" /* IMPORTANT */
                                         required
                                         placeholder="Votre nom"
-                                        className="w-full bg-zinc-900/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-foreground/50 focus:bg-zinc-900 transition-all placeholder:text-foreground/40 font-sans"
+                                        className="w-full bg-zinc-100/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-foreground/50 focus:bg-white dark:focus:bg-zinc-900 transition-all placeholder:text-foreground/40 font-sans"
                                     />
                                 </div>
                                 {/* Email */}
@@ -120,7 +120,7 @@ export default function ContactSection() {
                                         name="email" /* IMPORTANT */
                                         required
                                         placeholder="nom@exemple.com"
-                                        className="w-full bg-zinc-900/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-foreground/50 focus:bg-zinc-900 transition-all placeholder:text-foreground/40 font-sans"
+                                        className="w-full bg-zinc-100/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-foreground/50 focus:bg-white dark:focus:bg-zinc-900 transition-all placeholder:text-foreground/40 font-sans"
                                     />
                                 </div>
                             </div>
@@ -131,11 +131,11 @@ export default function ContactSection() {
                                 <select
                                     id="subject"
                                     name="subject" /* IMPORTANT */
-                                    className="w-full bg-zinc-900/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-foreground/50 focus:bg-zinc-900 transition-all font-sans appearance-none cursor-pointer"
+                                    className="w-full bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-foreground/50 focus:bg-white dark:focus:bg-zinc-900 transition-all font-sans appearance-none cursor-pointer"
                                 >
-                                    <option className="bg-zinc-900 text-foreground" value="Devis">Demande de devis</option>
-                                    <option className="bg-zinc-900 text-foreground" value="Mission">Proposition de mission</option>
-                                    <option className="bg-zinc-900 text-foreground" value="Autre">Autre</option>
+                                    <option className="dark:bg-zinc-900 bg-zinc-100/80 text-foreground" value="Devis">Demande de devis</option>
+                                    <option className="dark:bg-zinc-900 bg-zinc-100/80 text-foreground" value="Mission">Proposition de mission</option>
+                                    <option className="dark:bg-zinc-900 bg-zinc-100/80 text-foreground" value="Autre">Autre</option>
                                 </select>
                             </div>
 
@@ -147,14 +147,14 @@ export default function ContactSection() {
                                     required
                                     rows={4}
                                     placeholder="Parlez-moi de votre projet..."
-                                    className="w-full bg-zinc-900/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-foreground/50 focus:bg-zinc-900 transition-all placeholder:text-foreground/40 font-sans resize-none"
+                                    className="w-full bg-zinc-100/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-foreground/50 focus:bg-white dark:focus:bg-zinc-900 transition-all placeholder:text-foreground/40 font-sans resize-none"
                                 ></textarea>
                             </div>
 
                             {/* Bouton Submit */}
                             <button
                                 type="submit"
-                                className="w-full group bg-foreground text-background font-bold uppercase tracking-wider text-xs py-4 rounded-xl hover:bg-zinc-200 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                                className="w-full group bg-foreground text-background hover:bg-foreground/80 dark:bg-foreground dark:text-background font-bold uppercase tracking-wider text-xs py-4 rounded-xl dark:hover:bg-zinc-200 transition-colors flex items-center justify-center gap-2 cursor-pointer"
                             >
                                 Envoyer le message
                                 <Send className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
