@@ -36,6 +36,14 @@ export default function ContactSection() {
               {EMAIL}
             </a>
 
+            <a
+              href="/CV_Redean_Akunzada.pdf"
+              download
+              className="mt-6 inline-flex items-center gap-2 px-4 py-2.5 border border-foreground text-sm text-foreground hover:bg-foreground hover:text-background transition-colors"
+            >
+              Télécharger mon CV (PDF) ↓
+            </a>
+
             <dl className="mt-10 border-t border-border text-sm">
               <div className="grid grid-cols-[7rem_1fr] gap-4 py-3 border-b border-border">
                 <dt className="font-mono text-[11px] text-muted-foreground pt-0.5">Localisation</dt>

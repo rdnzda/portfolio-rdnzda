@@ -62,6 +62,13 @@ export default function BackgroundLayout({ children, showNav = true }: Backgroun
                   </Link>
                 );
               })}
+              <a
+                href="/CV_Redean_Akunzada.pdf"
+                download
+                className="font-mono text-xs text-foreground border border-foreground px-3 py-1.5 hover:bg-foreground hover:text-background transition-colors"
+              >
+                CV ↓
+              </a>
             </nav>
 
             {/* Mobile trigger */}

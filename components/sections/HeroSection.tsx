@@ -43,6 +43,13 @@ export default function HeroSection() {
                 <Link href="#projets" className="text-foreground underline decoration-accent underline-offset-4 hover:text-accent">
                   Voir les projets ↓
                 </Link>
+<a
+                  href="/CV_Redean_Akunzada.pdf"
+                  download
+                  className="text-foreground underline decoration-accent underline-offset-4 hover:text-accent"
+                >
+                  Télécharger mon CV (PDF) ↓
+                </a>
                 <Link href="#contact" className="text-muted-foreground underline decoration-border underline-offset-4 hover:text-foreground">
                   Me contacter
                 </Link>
