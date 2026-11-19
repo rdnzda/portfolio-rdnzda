@@ -2,12 +2,18 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Spotlight, GridBackground } from "../ui/spotlight-new";
 
 interface BackgroundLayoutProps {
   children: React.ReactNode;
   showNav?: boolean;
 }
+
+const NAV_LINKS = [
+  { id: "projets", label: "Projets" },
+  { id: "services", label: "Compétences" },
+  { id: "biographie", label: "Biographie" },
+  { id: "contact", label: "Contact" },
+];
 
 export default function BackgroundLayout({ children, showNav = true }: BackgroundLayoutProps) {
   const [activeSection, setActiveSection] = useState("");
@@ -17,109 +23,85 @@ export default function BackgroundLayout({ children, showNav = true }: Backgroun
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
         });
       },
-      {
-        rootMargin: "-20% 0px -35% 0px", 
-        threshold: 0.1,
-      }
+      { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
     );
 
-    const sections = document.querySelectorAll("section[id]");
-    sections.forEach((section) => observer.observe(section));
-
+    document.querySelectorAll("section[id]").forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
 
-  const getLinkClasses = (sectionId: string) => {
-    const isActive = activeSection === sectionId;
-    return `cursor-pointer transition-all duration-300 py-1 ${
-      isActive
-        ? "text-foreground border-b border-foreground"
-        : "text-zinc-500 dark:text-zinc-400 hover:text-foreground hover:tracking-[0.2em] border-b border-transparent"
-    }`;
-  };
-
-  const getMobileLinkClasses = (sectionId: string) => {
-    const isActive = activeSection === sectionId;
-    return `block w-full text-center py-3 text-sm uppercase tracking-widest transition-all duration-300 ${
-      isActive
-        ? "text-zinc-900 dark:text-white font-bold bg-zinc-100 dark:bg-white/10 rounded-lg"
-        : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
-    }`;
-  };
-
   return (
-    <div className="relative min-h-screen w-full overflow-hidden font-sans">
-      
-      {/* NAVIGATION DESKTOP (Inchangée - En bas) */}
+    <div className="relative min-h-screen w-full overflow-x-clip font-sans">
       {showNav && (
-        <nav className="fixed hidden lg:flex bottom-6 w-full px-4 justify-center items-center z-50 text-xs tracking-widest animate-fade-in-up">
-          <div className="items-center space-x-8 bg-white/90 dark:bg-[#0a0a0a]/80 px-8 py-3 rounded-full backdrop-blur-md border border-zinc-200/80 dark:border-zinc-800/50 shadow-2xl shadow-black/5 dark:shadow-2xl">
-            <Link href="#home" className={getLinkClasses("home")}>Accueil</Link>
-            <Link href="#projets" className={getLinkClasses("projets")}>Projets</Link>
-            <Link href="#services" className={getLinkClasses("services")}>Compétences</Link>
-            <Link href="#biographie" className={getLinkClasses("biographie")}>Biographie</Link>
-            <Link href="#contact" className={getLinkClasses("contact")}>Contact</Link>  
-          </div>
-        </nav>
-      )}
+        <header className="fixed top-0 inset-x-0 z-50 border-b border-border bg-[var(--nav-bg)] backdrop-blur-md">
+          <div className="max-w-6xl mx-auto h-14 px-4 sm:px-8 flex items-center justify-between">
+            <Link href="#home" className="font-mono text-sm font-medium text-foreground">
+              rdnzda<span className="text-accent">_</span>
+            </Link>
 
-      {/* --- NAVIGATION MOBILE (HAUT DROITE) --- */}
-      {showNav && (
-        // Changement ici : top-6 right-6
-        <nav className="fixed lg:hidden top-6 right-6 z-50 flex flex-col items-end gap-4">
-          
-          {/* LE BOUTON FLOTTANT (Trigger) */}
-          {/* Je mets le bouton EN PREMIER dans le HTML pour que le menu (qui est en dessous dans le code) s'affiche visuellement SOUS le bouton grâce au flux naturel ou flex-col */}
-          <button 
-            onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
-            className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-lg shadow-white/10 transition-transform active:scale-95 z-50"
-            aria-label="Menu"
-          >
-            {/* Icône Hamburger qui se transforme en Croix */}
-            <div className="relative h-3 w-5 overflow-hidden">
-                <span className={`absolute top-0 left-0 h-[2px] w-full bg-black transition-all duration-300 ${isMobileNavOpen ? "top-1/2 -translate-y-1/2 rotate-45" : ""}`} />
-                <span className={`absolute top-1/2 left-0 h-[2px] w-full -translate-y-1/2 bg-black transition-all duration-300 ${isMobileNavOpen ? "opacity-0 translate-x-full" : ""}`} />
-                <span className={`absolute bottom-0 left-0 h-[2px] w-full bg-black transition-all duration-300 ${isMobileNavOpen ? "bottom-1/2 translate-y-1/2 -rotate-45" : ""}`} />
-            </div>
-          </button>
+            {/* Desktop */}
+            <nav aria-label="Navigation principale" className="hidden md:flex items-center gap-8">
+              {NAV_LINKS.map((link, i) => {
+                const isActive = activeSection === link.id;
+                return (
+                  <Link
+                    key={link.id}
+                    href={`#${link.id}`}
+                    aria-current={isActive ? "true" : undefined}
+                    className={`group flex items-baseline gap-1.5 text-sm transition-colors ${
+                      isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    <span className={`font-mono text-[10px] ${isActive ? "text-accent" : ""}`}>
+                      0{i + 1}
+                    </span>
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </nav>
 
-          {/* LE MENU DÉPLIANT (La liste) */}
-          <div 
-            className={`
-                absolute top-[120%] right-0 w-48
-                bg-white/95 dark:bg-[#0a0a0a]/90 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800
-                rounded-2xl p-2 shadow-2xl shadow-black/10 dark:shadow-2xl origin-top-right transition-all duration-300 ease-out z-40
-                ${isMobileNavOpen ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-90 -translate-y-4 pointer-events-none"}
-            `}
-          >
-            {/* Note: translate-y-0 vs -translate-y-4 : quand c'est fermé, ça remonte un peu vers le bouton */}
-            <div className="flex flex-col gap-1">
-               <Link href="#home" onClick={() => setIsMobileNavOpen(false)} className={getMobileLinkClasses("home")}>Accueil</Link>
-               <Link href="#projets" onClick={() => setIsMobileNavOpen(false)} className={getMobileLinkClasses("projets")}>Projets</Link>
-               <Link href="#services" onClick={() => setIsMobileNavOpen(false)} className={getMobileLinkClasses("services")}>Compétences</Link>
-               <Link href="#biographie" onClick={() => setIsMobileNavOpen(false)} className={getMobileLinkClasses("biographie")}>Biographie</Link>
-               <Link href="#contact" onClick={() => setIsMobileNavOpen(false)} className={getMobileLinkClasses("contact")}>Contact</Link>
-            </div>
+            {/* Mobile trigger */}
+            <button
+              onClick={() => setIsMobileNavOpen((open) => !open)}
+              className="md:hidden font-mono text-xs text-foreground border border-border px-3 py-1.5"
+              aria-expanded={isMobileNavOpen}
+              aria-controls="mobile-nav"
+            >
+              {isMobileNavOpen ? "Fermer" : "Menu"}
+            </button>
           </div>
 
-        </nav>
+          {/* Mobile menu */}
+          <nav
+            id="mobile-nav"
+            aria-label="Navigation mobile"
+            className={`md:hidden border-t border-border bg-background ${isMobileNavOpen ? "block" : "hidden"}`}
+          >
+            <ul className="px-4 py-2">
+              {NAV_LINKS.map((link, i) => (
+                <li key={link.id} className="border-b border-border last:border-b-0">
+                  <Link
+                    href={`#${link.id}`}
+                    onClick={() => setIsMobileNavOpen(false)}
+                    className={`flex items-baseline gap-3 py-3 text-lg ${
+                      activeSection === link.id ? "text-foreground" : "text-muted-foreground"
+                    }`}
+                  >
+                    <span className="font-mono text-xs text-accent">0{i + 1}</span>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </header>
       )}
 
-      {/* BACKGROUND GLOBAL */}
-      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <GridBackground />
-        <Spotlight />
-      </div>
-
-      {/* CONTENU */}
-      <div className="relative z-10">
-        {children}
-      </div>
+      <div className="relative">{children}</div>
     </div>
   );
 }

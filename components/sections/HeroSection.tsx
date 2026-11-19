@@ -1,74 +1,56 @@
 import Link from "next/link";
 import FooterMeta from "../ui/FooterMeta";
 
+const SPECS = [
+  { label: "Formation", value: "L3 Informatique, Université d'Orléans" },
+  { label: "Cible", value: "Cybersécurité : réseaux, systèmes, web" },
+  { label: "Recherche", value: "Stage dès le 18 mai 2027, puis alternance bac+5" },
+];
+
 export default function HeroSection() {
   return (
-    <section id="home" className="relative h-screen w-full overflow-hidden">
+    <section id="home" className="relative min-h-[100svh] w-full flex flex-col px-4 sm:px-8 pt-24 pb-10">
+      <div className="max-w-6xl w-full mx-auto flex-1 flex flex-col">
+        {/* Ligne de métadonnées */}
+        <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-xs text-muted-foreground animate-fade-in">
+          <span>Portfolio — Redean Akunzada</span>
+          <span>
+            Orléans, FR · <FooterMeta />
+          </span>
+        </div>
 
-        {/* CONTAINER CENTRÉ */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl px-6 text-left lg:text-center">
-          
-          {/* TITRE */}
-          <div className="animate-fade-in-up">
-            <h1 className="font-switzer font-bold text-6xl sm:text-[7rem] md:text-[9rem] leading-[0.9] text-foreground tracking-tight uppercase mb-8">
-              A<span className="text-zinc-500">k</span>unzada <br/>
-              <span className="text-foreground">
-                <span className="italic mr-1.5 sm:mr-2 md:mr-4">R</span>
-                ed
-                <span className="inline-block text-zinc-500 scale-x-[-1]">Æ</span>
-                n
-                <span className="text-zinc-500">.</span>
-              </span>
-            </h1>
-          </div>
+        <div className="flex-1 flex flex-col justify-end">
+          <h1 className="animate-fade-in-up text-[17vw] sm:text-[14vw] lg:text-[11.5rem] font-semibold leading-[0.85] tracking-[-0.06em] text-foreground">
+            Redean
+            <br />
+            Akunzada<span className="text-accent">.</span>
+          </h1>
 
-          {/* PARAGRAPHE */}
-          <div className="animate-fade-in-up mb-12">
-            <p className="font-switzer text-zinc-600 dark:text-zinc-400 text-sm sm:text-base max-w-2xl lg:mx-auto leading-relaxed">
-              Étudiant en L3 Informatique, en route vers la <span className="italic hidden sm:inline-block text-foreground">cybersécurité</span>. <br/>
-              Je recherche un stage en cybersécurité dès le 18 mai 2027, puis une alternance bac+5.
+          <div className="mt-10 sm:mt-14 grid grid-cols-12 gap-x-6 gap-y-8 border-t border-foreground pt-6">
+            <p className="animate-fade-in-up-delay-1 col-span-12 md:col-span-5 text-lg sm:text-xl leading-snug text-foreground">
+              Étudiant en informatique, je me spécialise en cybersécurité. J&apos;apprends à
+              comprendre comment les systèmes communiquent, et comment les protéger.
             </p>
-          </div>
 
-          {/* --- AJOUT MOBILE : BLOC D'IDENTITÉ TECHNIQUE --- */}
-          <div className="lg:mx-auto w-full max-w-[300px] animate-fade-in-up-delay-2">
-            
-            {/* Petite ligne de séparation esthétique */}
-            <div className="h-[1px] w-16 bg-zinc-200 dark:bg-zinc-800 mb-6"></div>
-
-            {/* La Grille d'Infos */}
-            <div className="grid grid-cols-2 gap-y-6 gap-x-4 text-[10px] font-mono uppercase tracking-widest text-zinc-500">
-
-                {/* 1. Statut (Avec le point vert qui pulse) */}
-                <div className="flex flex-col gap-2">
-                    <span className="text-zinc-400 dark:text-zinc-700">Statut</span>
-                    <div className="flex items-center gap-2 text-zinc-800 dark:text-zinc-200 font-bold">
-                        <span className="relative flex h-2 w-2">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                        </span>
-                        <span>Stage dès mai 2027</span>
-                    </div>
+            <dl className="animate-fade-in-up-delay-2 col-span-12 md:col-span-6 md:col-start-7 text-sm">
+              {SPECS.map((spec) => (
+                <div key={spec.label} className="grid grid-cols-[7rem_1fr] gap-4 py-2 border-b border-border first:pt-0">
+                  <dt className="font-mono text-xs text-muted-foreground pt-0.5">{spec.label}</dt>
+                  <dd className="text-foreground">{spec.value}</dd>
                 </div>
-
-                 {/* 4. Lien vers Portfolio (Subtil) */}
-                 <div className="flex flex-col gap-2">
-                    <span className="text-zinc-400 dark:text-zinc-700">Index</span>
-                    <Link href="#projets" className="text-foreground border-b border-zinc-400 dark:border-zinc-700 hover:border-foreground transition-colors w-fit pb-0.5">
-                        Voir Projets ↗
-                    </Link>
-                </div>
-
-            </div>
+              ))}
+              <div className="flex flex-wrap gap-x-6 gap-y-2 pt-5">
+                <Link href="#projets" className="text-foreground underline decoration-accent underline-offset-4 hover:text-accent">
+                  Voir les projets ↓
+                </Link>
+                <Link href="#contact" className="text-muted-foreground underline decoration-border underline-offset-4 hover:text-foreground">
+                  Me contacter
+                </Link>
+              </div>
+            </dl>
           </div>
-
         </div>
-        
-        <FooterMeta />
-        
-        <div className="absolute bottom-6 left-6">
-          <span className="text-foreground font-switzer uppercase cursor-default tracking-widest font-bold text-base sm:text-md">rdnzda</span>
-        </div>
+      </div>
     </section>
   );
 }

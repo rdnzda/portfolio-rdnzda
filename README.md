@@ -7,7 +7,7 @@ A single-page site with smooth scrolling that presents my projects, my skills, m
 ## Features
 
 - Smooth-scroll sections: home, projects, skills, biography, contact
-- Animated aurora background and a custom cursor
+- Restrained editorial design: paper/ink palette, one accent colour, numbered sections, light and dark modes
 - Scroll-reveal animations driven by an Intersection Observer hook (`hooks/useInView.ts`)
 - Contact form handled by Formspree (no backend)
 - Legal notice (`/mentions-legales`) and privacy policy (`/politique-confidentialite`) pages
@@ -36,9 +36,9 @@ Other scripts: `npm run build`, `npm start`, `npm run lint`.
 
 ```text
 app/                    routes: /, /mentions-legales, /politique-confidentialite
-components/layout/      BackgroundLayout (navigation + aurora), Footer
+components/layout/      BackgroundLayout (navigation), Footer
 components/sections/    one file per section (Hero, Projects, Skills, Biography, Contact)
-components/ui/          CustomCursor, AuroraBackground, FooterMeta
+components/ui/          SectionHeader, Reveal, FooterMeta
 hooks/                  useInView
 public/                 images and icons
 ```

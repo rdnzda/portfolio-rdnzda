@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Syncopate } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import CustomCursor from "@/components/ui/CustomCursor";
 import { Analytics } from "@vercel/analytics/next"
 
 // --- CONFIGURATION DES FONTS ---
@@ -14,12 +13,6 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const syncopate = Syncopate({ 
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-syncopate',
 });
 
 const switzer = localFont({
@@ -67,8 +60,8 @@ export const metadata: Metadata = {
 // --- CONFIGURATION MOBILE (Theme Color) ---
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#FAFAFA" },
-    { media: "(prefers-color-scheme: dark)", color: "#050505" },
+    { media: "(prefers-color-scheme: light)", color: "#F3F1EC" },
+    { media: "(prefers-color-scheme: dark)", color: "#10100F" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -80,7 +73,7 @@ const jsonLd = {
   "name": "Redean Akunzada",
   "alternateName": "RDNZDA",
   "url": "https://rdnzda.com",
-  "jobTitle": "Creative Developer",
+  "jobTitle": "Étudiant en informatique",
   "image": "https://rdnzda.com/opengraph-image.png",
   "sameAs": [
     "https://www.linkedin.com/in/redean-akunzada/",
@@ -96,7 +89,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${switzer.variable} ${geistMono.variable} ${syncopate.variable} antialiased selection:bg-[#C084FC] selection:text-black`}
+        className={`${geistSans.variable} ${switzer.variable} ${geistMono.variable} antialiased`}
       >
         {/* Script JSON-LD pour le SEO Sémantique */}
         <script
@@ -104,7 +97,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Analytics />
-        <CustomCursor />
         {children}
       </body>
     </html>

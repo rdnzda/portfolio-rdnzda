@@ -1,170 +1,104 @@
-"use client";
-
-import { useInView } from "@/hooks/useInView";
-import {
-    Mail,
-    MapPin,
-    Github,
-    Linkedin,
-    ArrowRight,
-    Send
-} from "lucide-react";
 import Link from "next/link";
+import SectionHeader from "@/components/ui/SectionHeader";
+import Reveal from "@/components/ui/Reveal";
+
+const EMAIL = "akunzada.redean.pro@gmail.com";
+
+const liens = [
+  { label: "GitHub", href: "https://github.com/rdnzda", handle: "rdnzda" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/redean-akunzada/", handle: "redean-akunzada" },
+  { label: "TryHackMe", href: "https://tryhackme.com/p/rdnzda", handle: "rdnzda" },
+];
+
+const fieldClass =
+  "w-full bg-input-bg border border-border px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-foreground transition-colors";
+const labelClass = "block font-mono text-[11px] text-muted-foreground mb-1.5";
 
 export default function ContactSection() {
-    const { ref, isInView } = useInView({ threshold: 0.2 });
+  return (
+    <section id="contact" className="relative w-full py-24 sm:py-32 px-4 sm:px-8">
+      <div className="max-w-6xl mx-auto">
+        <SectionHeader
+          index="04"
+          label="Contact"
+          title={<>Parlons de mon stage<span className="text-accent">.</span></>}
+          intro="Vous recrutez un stagiaire ou un alternant en cybersécurité ? Je suis disponible pour un stage à partir du 18 mai 2027 (jusqu'à 3,5 mois), puis pour une alternance bac+5."
+        />
 
-    return (
-        <section id="contact" className="relative z-10 py-20 sm:py-32 px-4 sm:px-8 lg:px-20 border-t border-zinc-200 dark:border-white/5">
+        <div className="grid grid-cols-12 gap-x-6 gap-y-12">
+          {/* Coordonnées */}
+          <Reveal className="col-span-12 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-4">
+            <p className="font-mono text-[11px] text-muted-foreground mb-2">Email</p>
+            <a
+              href={`mailto:${EMAIL}`}
+              className="text-lg sm:text-xl break-all text-foreground underline decoration-accent underline-offset-4 hover:text-accent"
+            >
+              {EMAIL}
+            </a>
 
-            <div className="max-w-6xl mx-auto">
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
-
-                    {/* --- COLONNE GAUCHE : INFOS --- */}
-                    <div
-                        ref={ref as React.RefObject<HTMLDivElement>}
-                        className={`flex flex-col justify-between transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-                    >
-                        <div>
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="h-[1px] w-8 bg-foreground/20"></div>
-                                <span className="text-foreground/60 text-xs uppercase tracking-[0.2em] font-sans">
-                                    Contact
-                                </span>
-                            </div>
-
-                            <h2 className="font-syncopate text-4xl sm:text-5xl md:text-6xl text-foreground font-bold uppercase tracking-tight mb-8">
-                                Parlons de <br /> mon stage.
-                            </h2>
-
-                            <p className="text-foreground text-base leading-relaxed max-w-md font-sans mb-12">
-                                Vous recrutez un stagiaire ou un alternant en cybersécurité ? <br />
-                                Je suis disponible pour un stage à partir du 18 mai 2027 (jusqu&apos;à 3,5 mois), puis pour une alternance bac+5.
-                            </p>
-
-                            {/* Status "Disponible" */}
-                            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-8">
-                                <span className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                                </span>
-                                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 font-sans">Stage dès mai 2027</span>
-                            </div>
-                        </div>
-
-                        {/* Coordonnées */}
-                        <div className="space-y-6">
-                            {/* Email Block */}
-                            <a
-                                href="mailto:akunzada.redean.pro@gmail.com"
-                                className="group block p-6 border border-zinc-200 dark:border-white/10 rounded-2xl bg-zinc-50 dark:bg-zinc-900/30 hover:bg-zinc-100 dark:hover:bg-zinc-900/60 hover:border-foreground/30 transition-all duration-300"
-                            >
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-zinc-200 dark:bg-white/5 flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-colors">
-                                            <Mail className="w-4 h-4" />
-                                        </div>
-                                        <div>
-                                            <p className="text-[10px] uppercase tracking-wider text-foreground/40 font-bold mb-0.5">M&apos;écrire</p>
-                                            <p className="text-sm font-sans text-foreground">akunzada.redean.pro@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <ArrowRight className="w-4 h-4 text-foreground/40 group-hover:text-foreground group-hover:translate-x-1 transition-all" />
-                                </div>
-                            </a>
-
-                            {/* Localisation */}
-                            <div className="flex items-center gap-4 px-6 text-foreground">
-                                <MapPin className="w-4 h-4" />
-                                <span className="text-sm font-sans">Orléans, France & Remote</span>
-                            </div>
-
-                            {/* Réseaux Sociaux */}
-                            <div className="flex gap-4 px-6 pt-4 border-t border-zinc-200 dark:border-white/5">
-                                <Link aria-label="github" href="https://github.com/rdnzda" target="_blank" className="text-foreground hover:text-foreground transition-colors"><Github className="w-5 h-5" /></Link>
-                                <Link aria-label="linkedin" href="https://linkedin.com/in/redean-akunzada" target="_blank" className="text-foreground hover:text-foreground transition-colors"><Linkedin className="w-5 h-5" /></Link>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    {/* --- COLONNE DROITE : FORMULAIRE --- */}
-                    <div
-                        className={`transition-all duration-700 my-auto delay-200 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-                    >
-                        <form
-                            /* 1. COLLE TON LIEN FORMSPREE ICI */
-                            action="https://formspree.io/f/xaqwzggg"
-                            method="POST"
-                            className="bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-white/5 rounded-3xl p-6 sm:p-8 md:p-10 backdrop-blur-sm shadow-xl"
-                        >
-
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                                {/* Nom */}
-                                <div className="space-y-2">
-                                    <label className="text-xs uppercase tracking-wider text-foreground/60 font-bold ml-1">Nom</label>
-                                    <input
-                                        type="text"
-                                        name="name" /* IMPORTANT */
-                                        required
-                                        placeholder="Votre nom"
-                                        className="w-full bg-zinc-100/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-foreground/50 focus:bg-white dark:focus:bg-zinc-900 transition-all placeholder:text-foreground/40 font-sans"
-                                    />
-                                </div>
-                                {/* Email */}
-                                <div className="space-y-2">
-                                    <label className="text-xs uppercase tracking-wider text-foreground/60 font-bold ml-1">Email</label>
-                                    <input
-                                        type="email"
-                                        name="email" /* IMPORTANT */
-                                        required
-                                        placeholder="nom@exemple.com"
-                                        className="w-full bg-zinc-100/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-foreground/50 focus:bg-white dark:focus:bg-zinc-900 transition-all placeholder:text-foreground/40 font-sans"
-                                    />
-                                </div>
-                            </div>
-
-                            {/* Sujet */}
-                            <div className="space-y-2 mb-6">
-                                <label htmlFor="subject" className="text-xs uppercase tracking-wider text-foreground/60 font-bold ml-1">Sujet</label>
-                                <select
-                                    id="subject"
-                                    name="subject" /* IMPORTANT */
-                                    className="w-full bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-foreground/50 focus:bg-white dark:focus:bg-zinc-900 transition-all font-sans appearance-none cursor-pointer"
-                                >
-                                    <option className="dark:bg-zinc-900 bg-zinc-100/80 text-foreground" value="Stage">Proposition de stage</option>
-                                    <option className="dark:bg-zinc-900 bg-zinc-100/80 text-foreground" value="Alternance">Proposition d&apos;alternance</option>
-                                    <option className="dark:bg-zinc-900 bg-zinc-100/80 text-foreground" value="Autre">Autre</option>
-                                </select>
-                            </div>
-
-                            {/* Message */}
-                            <div className="space-y-2 mb-8">
-                                <label className="text-xs uppercase tracking-wider text-foreground/60 font-bold ml-1">Message</label>
-                                <textarea
-                                    name="message" /* IMPORTANT */
-                                    required
-                                    rows={4}
-                                    placeholder="Votre message..."
-                                    className="w-full bg-zinc-100/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-foreground/50 focus:bg-white dark:focus:bg-zinc-900 transition-all placeholder:text-foreground/40 font-sans resize-none"
-                                ></textarea>
-                            </div>
-
-                            {/* Bouton Submit */}
-                            <button
-                                type="submit"
-                                className="w-full group bg-foreground text-background hover:bg-foreground/80 dark:bg-foreground dark:text-background font-bold uppercase tracking-wider text-xs py-4 rounded-xl dark:hover:bg-zinc-200 transition-colors flex items-center justify-center gap-2 cursor-pointer"
-                            >
-                                Envoyer le message
-                                <Send className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                            </button>
-
-                        </form>
-                    </div>
-
+            <dl className="mt-10 border-t border-border text-sm">
+              <div className="grid grid-cols-[7rem_1fr] gap-4 py-3 border-b border-border">
+                <dt className="font-mono text-[11px] text-muted-foreground pt-0.5">Localisation</dt>
+                <dd className="text-foreground">Orléans, France · télétravail possible</dd>
+              </div>
+              <div className="grid grid-cols-[7rem_1fr] gap-4 py-3 border-b border-border">
+                <dt className="font-mono text-[11px] text-muted-foreground pt-0.5">Disponibilité</dt>
+                <dd className="text-foreground flex items-center gap-2">
+                  <span aria-hidden className="inline-block h-1.5 w-1.5 bg-accent" />
+                  Stage dès mai 2027
+                </dd>
+              </div>
+              {liens.map((lien) => (
+                <div key={lien.label} className="grid grid-cols-[7rem_1fr] gap-4 py-3 border-b border-border">
+                  <dt className="font-mono text-[11px] text-muted-foreground pt-0.5">{lien.label}</dt>
+                  <dd>
+                    <Link href={lien.href} target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-accent">
+                      {lien.handle} ↗
+                    </Link>
+                  </dd>
                 </div>
-            </div>
-        </section>
-    );
+              ))}
+            </dl>
+          </Reveal>
+
+          {/* Formulaire */}
+          <Reveal delay={100} className="col-span-12 md:col-span-9 md:col-start-4 lg:col-span-5 lg:col-start-8">
+            <form action="https://formspree.io/f/xaqwzggg" method="POST" className="space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="name" className={labelClass}>Nom</label>
+                  <input id="name" type="text" name="name" required autoComplete="name" placeholder="Votre nom" className={fieldClass} />
+                </div>
+                <div>
+                  <label htmlFor="email" className={labelClass}>Email</label>
+                  <input id="email" type="email" name="email" required autoComplete="email" placeholder="nom@entreprise.fr" className={fieldClass} />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="subject" className={labelClass}>Sujet</label>
+                <select id="subject" name="subject" className={`${fieldClass} appearance-none`}>
+                  <option value="Stage">Proposition de stage</option>
+                  <option value="Alternance">Proposition d&apos;alternance</option>
+                  <option value="Autre">Autre</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="message" className={labelClass}>Message</label>
+                <textarea id="message" name="message" required rows={5} placeholder="Votre message…" className={`${fieldClass} resize-none`} />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full sm:w-auto px-6 py-3 bg-foreground text-background text-sm font-medium hover:bg-accent transition-colors"
+              >
+                Envoyer le message →
+              </button>
+            </form>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
 }

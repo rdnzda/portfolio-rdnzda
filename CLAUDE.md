@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Description
 
-Portfolio personnel de Redean Akunzada (rdnzda) — étudiant en L3 Informatique à Orléans, en route vers la cybersécurité, à la recherche d'un stage (dès mai 2027) puis d'une alternance bac+5. Site monopage avec défilement fluide présentant les projets, les compétences, la biographie et un formulaire de contact. Conçu avec une esthétique moderne (fond aurora animé, curseur personnalisé, animations au scroll). Entièrement en français, déployé en production. Le site ne propose pas de prestations : tout contenu doit rester cohérent avec le CV (aucun client ni mission inventés).
+Portfolio personnel de Redean Akunzada (rdnzda) — étudiant en L3 Informatique à Orléans, en route vers la cybersécurité, à la recherche d'un stage (dès mai 2027) puis d'une alternance bac+5. Site monopage avec défilement fluide présentant les projets, les compétences, la biographie et un formulaire de contact. Esthétique sobre de type « dossier technique » : fond papier/encre, un seul accent orange (`--accent`), titres en Switzer, métadonnées en Geist Mono, filets fins, sections numérotées. Éviter les effets décoratifs génériques (glow, spotlight, blobs, marquees, curseur custom). Entièrement en français, déployé en production. Le site ne propose pas de prestations : tout contenu doit rester cohérent avec le CV (aucun client ni mission inventés).
 
 ## Commands
 
@@ -26,20 +26,22 @@ No test framework is configured.
 - `/mentions-legales` — legal notices
 - `/politique-confidentialite` — privacy policy
 
-**Page structure:** `app/page.tsx` composes all sections inside `BackgroundLayout`, which provides the navigation and Aurora animated background. Scroll anchors: `#home`, `#projets`, `#services` (labelled « Compétences » in the nav), `#biographie`, `#contact`.
+**Page structure:** `app/page.tsx` composes all sections inside `BackgroundLayout`, which provides the fixed top navigation. Scroll anchors: `#home`, `#projets`, `#services` (labelled « Compétences » in the nav), `#biographie`, `#contact`.
 
 **Components:**
-- `components/layout/` — `BackgroundLayout` (nav + aurora wrapper), `Footer`
+- `components/layout/` — `BackgroundLayout` (top nav wrapper), `Footer`
 - `components/sections/` — one file per scroll section (`HeroSection`, `ProjetsSection`, `ServicesSection` (skills), `BiographieSection`, `ContactSection`)
-- `components/ui/` — `CustomCursor`, `AuroraBackground`, `FooterMeta`
+- `components/ui/` — `SectionHeader` (numbered section title), `Reveal` (scroll-reveal wrapper), `FooterMeta` (Paris time + Orléans temperature)
 
 **Hooks:** `hooks/useInView.ts` — generic Intersection Observer hook that triggers once on first viewport entry; used for scroll-reveal animations throughout sections.
 
-**Animations:** Custom keyframes (`fadeInUp`, `slideInRight`, `slideInLeft`, `lineExpand`, `blob`, `drift`, `scroll-left`) defined in `app/globals.css`. Delay utilities applied via Tailwind class names.
+**Animations:** Kept minimal. `fadeInUp` / `fadeIn` keyframes in `app/globals.css` for the hero; other sections use `Reveal`.
+
+**Content data:** projects, skills, TryHackMe steps and timeline are plain arrays at the top of each section file — edit them there, staying faithful to the CV.
 
 **Styling:** Utility-first Tailwind CSS only — no CSS modules. Responsive via `sm:` / `lg:` breakpoints with mobile-first defaults.
 
-**State:** No external state management. `BackgroundLayout` holds local state for active section and mobile nav. `CustomCursor` uses `useRef` + `requestAnimationFrame`.
+**State:** No external state management. `BackgroundLayout` holds local state for active section and mobile nav.
 
 **Contact form:** Formspree (`https://formspree.io/f/xaqwzggg`) — no backend.
 
