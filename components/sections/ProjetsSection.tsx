@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Reveal from "@/components/ui/Reveal";
+import ProjetPreview, { type Preview } from "@/components/ui/ProjetPreview";
 
 interface ProjetLink {
   label: string;
@@ -15,6 +16,7 @@ interface Projet {
   features?: string[];
   stack: string[];
   links?: ProjetLink[];
+  preview?: Preview;
 }
 
 interface AutreProjet {
@@ -44,6 +46,7 @@ const projets: Projet[] = [
       { label: "Site", href: "https://agora360.vercel.app" },
       { label: "Code", href: `${GH}/Agora360` },
     ],
+    preview: { type: "image", src: "/img/projets/agora360.jpg", alt: "Page d'accueil d'Agora360", url: "https://agora360.vercel.app", width: 1600, height: 1000 },
   },
   {
     name: "Bonnes Lectures",
@@ -55,6 +58,11 @@ const projets: Projet[] = [
       "Formulaires protégés contre le CSRF (jeton CSRF de Django)",
     ],
     stack: ["Python", "Django"],
+    preview: {
+      type: "flow",
+      steps: ["Utilisateur connecté ?", "Droits suffisants ?", "Jeton CSRF valide ?", "Action autorisée"],
+      caption: "Les contrôles qu'une requête doit passer avant de modifier des données.",
+    },
   },
   {
     name: "Mon Vieux Grimoire",
@@ -64,6 +72,18 @@ const projets: Projet[] = [
     features: ["Envoi et optimisation des images (Multer, Sharp)"],
     stack: ["Node.js", "Express", "MongoDB"],
     links: [{ label: "Code", href: `${GH}/Developpez-le-back-end-d-un-site-de-notation-de-livres` }],
+    preview: {
+      type: "code",
+      file: "routes/book.js",
+      highlight: "auth",
+      code: `router.post('/', auth, multer, bookCtrl.createBook);
+router.get('/', bookCtrl.getAllBooks);
+router.get('/bestrating', bookCtrl.getBestRatingBooks);
+router.get('/:id', bookCtrl.getOneBook);
+router.put('/:id', auth, multer, bookCtrl.modifyBook);
+router.delete('/:id', auth, bookCtrl.deleteBook);`,
+      caption: "Extrait du dépôt : les routes qui modifient les données passent par le middleware auth (JWT).",
+    },
   },
   {
     name: "CDM 2026",
@@ -79,6 +99,7 @@ const projets: Projet[] = [
       { label: "Site", href: "https://cdm-2026-phi.vercel.app" },
       { label: "Code", href: `${GH}/CDM2026` },
     ],
+    preview: { type: "image", src: "/img/projets/cdm2026.jpg", alt: "Page d'accueil du site CDM 2026", url: "https://cdm-2026-phi.vercel.app", width: 1600, height: 813 },
   },
   {
     name: "Movie Database",
@@ -90,6 +111,7 @@ const projets: Projet[] = [
       { label: "Site", href: "https://moviedatabase-eta.vercel.app" },
       { label: "Code", href: `${GH}/movie-database` },
     ],
+    preview: { type: "image", src: "/img/projets/moviedb.jpg", alt: "Page d'accueil de Movie Database", url: "https://moviedatabase-eta.vercel.app", width: 1600, height: 1000 },
   },
 ];
 
@@ -208,6 +230,11 @@ export default function ProjetsSection() {
                     </p>
                   </div>
                   <Links links={projet.links} />
+                  {projet.preview && (
+                    <div className="pt-2 max-w-md">
+                      <ProjetPreview preview={projet.preview} />
+                    </div>
+                  )}
                 </div>
 
                 <div className="col-span-12 md:col-span-4">
