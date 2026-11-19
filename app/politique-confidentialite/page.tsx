@@ -62,7 +62,7 @@ export default function ConfidentialitePage() {
                                     </p>
                                     <ul className="mt-2 space-y-1 text-sm list-disc list-inside">
                                         <li>Répondre à vos demandes de contact</li>
-                                        <li>Établir des devis personnalisés</li>
+                                        <li>Échanger au sujet d'une proposition de stage ou d'alternance</li>
                                         <li>Améliorer l'expérience utilisateur</li>
                                     </ul>
                                     <p className="mt-3 text-xs italic">Aucune donnée n'est revendue à des tiers.</p>

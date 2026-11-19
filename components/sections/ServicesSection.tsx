@@ -1,7 +1,7 @@
 "use client";
 
 import { useInView } from "@/hooks/useInView";
-import { Code, Palette, Zap, ArrowRight } from "lucide-react";
+import { Code, Shield, Terminal, ArrowRight } from "lucide-react";
 import { RevealServiceCard, ServiceCardBody } from "@/components/ui/animated-service-card";
 import { LucideIcon } from "lucide-react";
 
@@ -15,28 +15,38 @@ interface Service {
 
 const services: Service[] = [
   {
-    icon: Code,
-    title: "Développement Web",
-    description: "Transformation de maquettes en sites web performants, interactifs et pixel-perfect.",
+    icon: Shield,
+    title: "Cybersécurité & réseaux",
+    description: "Ma spécialisation en cours : comprendre comment les systèmes communiquent et comment les protéger.",
     features: [
-      "Sites Vitrines (Présentation)",
-      "Landing Pages (Conversion)",
-      "Applications Web (React/Next.js)",
-      "Code propre & maintenable",
+      "Bases des réseaux (cours de L3)",
+      "TryHackMe : Pre Security terminé",
+      "Cyber Security 101 en cours",
+      "Wireshark, machines virtuelles",
     ],
-    badge: "Core",
+    badge: "Objectif",
   },
   {
-    icon: Palette,
-    title: "UI/UX Design",
-    description: "Conception d'interfaces modernes centrées sur l'expérience utilisateur et l'esthétique.",
-    features: ["Maquettage (Figma)", "Design Systems", "Prototypage Interactif", "Animations fluides"],
+    icon: Code,
+    title: "Développement sécurisé",
+    description: "Des applications web pensées avec la sécurité dès le départ.",
+    features: [
+      "Authentification et droits d'accès",
+      "Mots de passe hachés (bcrypt)",
+      "Protection CSRF, limitation des tentatives",
+      "Django, Next.js, Node.js, PostgreSQL",
+    ],
   },
   {
-    icon: Zap,
-    title: "Performance & SEO",
-    description: "Optimisation technique pour garantir une visibilité maximale et un chargement instantané.",
-    features: ["Audit de Performance", "SEO Technique & Sémantique", "Accessibilité (RGAA)", "Responsive Mobile First"],
+    icon: Terminal,
+    title: "Systèmes & programmation",
+    description: "Des bases solides sous le capot, validées par mes résultats en licence.",
+    features: [
+      "Linux, terminal et Bash",
+      "Système Unix : 19,75/20",
+      "C, C++, Java, Python, OCaml",
+      "Git, Docker (bases)",
+    ],
   },
 ];
 
@@ -55,11 +65,11 @@ export default function Services() {
           <div className="flex items-center gap-4 mb-4">
             <div className="h-[1px] w-12 bg-foreground/20"></div>
             <span className="text-foreground/60 text-xs uppercase tracking-[0.2em] font-sans">
-              Ce que je propose
+              Ce que je sais faire
             </span>
           </div>
           <h2 className="font-syncopate text-3xl sm:text-5xl md:text-6xl text-foreground font-bold uppercase tracking-tight">
-            Mes Expertises
+            Compétences
           </h2>
         </div>
 
@@ -105,13 +115,13 @@ export default function Services() {
         {/* --- BANDEAU BAS (CTA) --- */}
         <div className={`mt-16 md:mt-24 pt-10 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-6 transition-all duration-700 delay-500 ${isInView ? "opacity-100" : "opacity-0"}`}>
           <p className="text-foreground/60 text-sm md:text-base max-w-xl text-center md:text-left font-sans">
-            Chaque projet est unique. Je m&apos;adapte à vos besoins spécifiques pour délivrer une solution sur-mesure.
+            Je recherche un stage en cybersécurité à partir du 18 mai 2027 (jusqu&apos;à 3,5 mois), puis une alternance bac+5 en cybersécurité.
           </p>
           <a
             href="#contact"
             className="group flex items-center gap-2 text-foreground font-bold uppercase tracking-wider text-xs border-b border-foreground/20 pb-1 hover:border-foreground transition-all font-sans"
           >
-            Demander un devis
+            Me contacter
             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
           </a>
         </div>

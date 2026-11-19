@@ -61,7 +61,7 @@ export default function BackgroundLayout({ children, showNav = true }: Backgroun
           <div className="items-center space-x-8 bg-white/90 dark:bg-[#0a0a0a]/80 px-8 py-3 rounded-full backdrop-blur-md border border-zinc-200/80 dark:border-zinc-800/50 shadow-2xl shadow-black/5 dark:shadow-2xl">
             <Link href="#home" className={getLinkClasses("home")}>Accueil</Link>
             <Link href="#projets" className={getLinkClasses("projets")}>Projets</Link>
-            <Link href="#services" className={getLinkClasses("services")}>Services</Link>
+            <Link href="#services" className={getLinkClasses("services")}>Compétences</Link>
             <Link href="#biographie" className={getLinkClasses("biographie")}>Biographie</Link>
             <Link href="#contact" className={getLinkClasses("contact")}>Contact</Link>  
           </div>
@@ -101,7 +101,7 @@ export default function BackgroundLayout({ children, showNav = true }: Backgroun
             <div className="flex flex-col gap-1">
                <Link href="#home" onClick={() => setIsMobileNavOpen(false)} className={getMobileLinkClasses("home")}>Accueil</Link>
                <Link href="#projets" onClick={() => setIsMobileNavOpen(false)} className={getMobileLinkClasses("projets")}>Projets</Link>
-               <Link href="#services" onClick={() => setIsMobileNavOpen(false)} className={getMobileLinkClasses("services")}>Services</Link>
+               <Link href="#services" onClick={() => setIsMobileNavOpen(false)} className={getMobileLinkClasses("services")}>Compétences</Link>
                <Link href="#biographie" onClick={() => setIsMobileNavOpen(false)} className={getMobileLinkClasses("biographie")}>Biographie</Link>
                <Link href="#contact" onClick={() => setIsMobileNavOpen(false)} className={getMobileLinkClasses("contact")}>Contact</Link>
             </div>

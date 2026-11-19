@@ -25,8 +25,8 @@ export default function HeroSection() {
           {/* PARAGRAPHE */}
           <div className="animate-fade-in-up mb-12">
             <p className="font-switzer text-zinc-600 dark:text-zinc-400 text-sm sm:text-base max-w-2xl lg:mx-auto leading-relaxed">
-              Développeur Full-Stack & Créateur de solutions digitales <span className="italic hidden sm:inline-block text-foreground">sur mesure</span>. <br/>
-              J'aide les entreprises à concrétiser leurs idées grâce à des sites web performants.
+              Étudiant en L3 Informatique, en route vers la <span className="italic hidden sm:inline-block text-foreground">cybersécurité</span>. <br/>
+              Je recherche un stage en cybersécurité dès le 18 mai 2027, puis une alternance bac+5.
             </p>
           </div>
 
@@ -47,7 +47,7 @@ export default function HeroSection() {
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                         </span>
-                        <span>Disponible</span>
+                        <span>Stage dès mai 2027</span>
                     </div>
                 </div>
 

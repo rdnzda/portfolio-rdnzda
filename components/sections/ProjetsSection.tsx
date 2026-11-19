@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useInView } from "@/hooks/useInView";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { FiGithub, FiArrowUpRight, FiCheck, FiZap, FiLayout, FiSmartphone } from "react-icons/fi";
+import { FiGithub, FiArrowUpRight, FiCheck, FiShield, FiLock } from "react-icons/fi";
 import { 
   SiReact, 
   SiNextdotjs, 
@@ -80,39 +80,6 @@ function OnyxPreview() {
 }
 
 // ============================================
-// MICRO-UI 2 : PERFORMANCE (LIGHTHOUSE)
-// ============================================
-function PerformanceRing({ score, label }: { score: number, label: string }) {
-    return (
-        <div className="flex flex-col items-center gap-2">
-            <div className="relative w-12 h-12 flex items-center justify-center rounded-full border-2 border-zinc-800">
-                <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 36 36">
-                    <path
-                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                        fill="none"
-                        stroke="#10B981" // Vert Émeraude
-                        strokeWidth="3"
-                        strokeDasharray={`${score}, 100`}
-                    />
-                </svg>
-                <span className="text-xs font-bold text-emerald-400">{score}</span>
-            </div>
-            <span className="text-[8px] uppercase tracking-wider text-zinc-500">{label}</span>
-        </div>
-    )
-}
-
-function LighthousePreview() {
-    return (
-        <div className="flex gap-3 sm:gap-4">
-            <PerformanceRing score={100} label="SEO" />
-            <PerformanceRing score={98} label="Perf" />
-            <PerformanceRing score={100} label="Access" />
-        </div>
-    )
-}
-
-// ============================================
 // MICRO-UI 3 : PORTFOLIO MOBILE MOCKUP
 // ============================================
 function PortfolioMockup() {
@@ -182,10 +149,10 @@ export default function ProjetsSection({
                       <h3 className="text-zinc-900 dark:text-white font-display text-xl sm:text-2xl font-bold uppercase tracking-wide">
                         ONYX Detailing
                       </h3>
-                      <span className="px-2 py-0.5 bg-foreground text-background text-[10px] font-bold uppercase rounded-full">Client</span>
+                      <span className="px-2 py-0.5 bg-foreground text-background text-[10px] font-bold uppercase rounded-full">Projet démo</span>
                     </div>
                     <p className="text-zinc-600 dark:text-zinc-400 text-sm max-w-sm leading-relaxed hidden sm:block">
-                      Site vitrine complet pour un centre de rénovation. Calculateur de prix, animations, et conformité légale (RGPD/CGV).
+                      Site vitrine pour une entreprise fictive de detailing automobile, réalisé pour mon portfolio. Calculateur de prix, animations et pages légales (RGPD/CGV).
                     </p>
                   </div>
                   <Link href="https://onyx-detailling.vercel.app/" aria-label="Onyx Detailing" target="_blank" className="p-3 bg-zinc-100 dark:bg-white/5 rounded-full hover:bg-[#C5A086] hover:text-black transition-all group-hover:scale-110 shrink-0">
@@ -234,40 +201,53 @@ export default function ProjetsSection({
             </div>
           </div>
 
-          {/* --- 3. PERFORMANCE & SEO (Compétence) --- */}
+          {/* --- 3. TRYHACKME (Autoformation cyber) --- */}
           <div className={`group relative rounded-2xl border border-zinc-200/80 dark:border-white/10 p-[3px] transition-all duration-700 hover:border-zinc-300 dark:hover:border-white/20 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: "200ms" }}>
             <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
             <div className="relative h-full bg-white dark:bg-zinc-900/60 rounded-[calc(1rem-3px)] p-5 overflow-hidden transition-all duration-700 hover:bg-zinc-50 dark:hover:bg-zinc-900/80">
               <div className="flex flex-col h-full justify-between">
-                <h3 className="text-zinc-900 dark:text-white font-display text-sm font-bold uppercase tracking-wide flex items-center gap-2">
-                  <FiZap className="text-emerald-400" /> Performance
-                </h3>
-                <div className="flex-1 flex items-center justify-center">
-                  <LighthousePreview />
+                <div className="flex items-center justify-between">
+                  <h3 className="text-zinc-900 dark:text-white font-display text-sm font-bold uppercase tracking-wide flex items-center gap-2">
+                    <FiShield className="text-emerald-400" /> TryHackMe
+                  </h3>
+                  <Link href="https://tryhackme.com/p/rdnzda" aria-label="Profil TryHackMe" target="_blank" className="p-2 bg-zinc-100 dark:bg-white/5 rounded-full hover:bg-emerald-500/10 transition-all group-hover:scale-110 shrink-0">
+                    <FiArrowUpRight className="w-4 h-4 text-zinc-900 dark:text-white" />
+                  </Link>
                 </div>
-                <p className="text-[10px] text-zinc-500 text-center">Scores Lighthouse optimisés</p>
+                <ul className="flex-1 flex flex-col justify-center gap-2 text-xs text-zinc-600 dark:text-zinc-300">
+                  <li className="flex items-center gap-2"><FiCheck className="text-emerald-400 shrink-0" /> Pre Security terminé</li>
+                  <li className="flex items-center gap-2"><span className="relative flex h-2 w-2 mx-0.5 shrink-0"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span> Cyber Security 101 en cours</li>
+                  <li className="flex items-center gap-2 text-zinc-500"><FiArrowUpRight className="shrink-0" /> Ensuite : SOC Level 1, Jr Penetration Tester</li>
+                </ul>
+                <p className="text-[10px] text-zinc-500 text-center">Autoformation en cybersécurité</p>
               </div>
               <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
           </div>
 
-          {/* --- 4. STACK TECHNIQUE (Résumé) --- */}
-          <div className={`group relative md:col-span-2 rounded-2xl border border-zinc-200/80 dark:border-white/10 p-[3px] transition-all duration-700 hover:border-zinc-300 dark:hover:border-white/20 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: "300ms" }}>
+          {/* --- 4. PROJETS & SÉCURITÉ --- */}
+          <div className={`group relative row-span-2 sm:row-span-1 md:col-span-2 rounded-2xl border border-zinc-200/80 dark:border-white/10 p-[3px] transition-all duration-700 hover:border-zinc-300 dark:hover:border-white/20 ${bentoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: "300ms" }}>
             <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
             <div className="relative h-full bg-white dark:bg-zinc-900/60 rounded-[calc(1rem-3px)] p-5 overflow-hidden transition-all duration-700 hover:bg-zinc-50 dark:hover:bg-zinc-900/80">
               <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-zinc-900 dark:text-white font-display text-sm font-bold uppercase tracking-wide">Stack Technique</h3>
-                  <span className="text-[10px] text-zinc-500">2024 - 2025</span>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-zinc-900 dark:text-white font-display text-sm font-bold uppercase tracking-wide flex items-center gap-2">
+                    <FiLock className="text-emerald-400" /> Projets &amp; sécurité
+                  </h3>
+                  <span className="text-[10px] text-zinc-500">2024 - 2026</span>
                 </div>
-                <div className="flex-1 flex items-center justify-center">
-                  <div className="flex flex-wrap gap-4 justify-center">
-                    {Object.entries(techIcons).slice(0, 5).map(([name, { icon: Icon, color }]) => (
-                      <div key={name} className="p-3 bg-zinc-100 dark:bg-white/5 rounded-xl border border-zinc-200 dark:border-white/10 hover:border-zinc-300 dark:hover:border-white/20 hover:bg-zinc-200 dark:hover:bg-white/10 transition-all duration-300 group/icon">
-                        <Icon className="w-6 h-6 transition-colors duration-300 grayscale group-hover/icon:grayscale-0" style={{ color: "inherit" }} />
-                      </div>
-                    ))}
-                  </div>
+                <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-3 content-center">
+                  {[
+                    { name: "Bonnes Lectures", stack: "Django", detail: "Authentification, droits d'accès, protection CSRF" },
+                    { name: "Agora360", stack: "Next.js · PostgreSQL", detail: "bcrypt, rôles, limitation des tentatives, en-têtes HTTP" },
+                    { name: "API de notation", stack: "Node.js · MongoDB", detail: "JWT, bcrypt, audit de sécurité de mon propre code" },
+                  ].map((p) => (
+                    <div key={p.name} className="p-3 bg-zinc-100 dark:bg-white/5 rounded-xl border border-zinc-200 dark:border-white/10">
+                      <p className="text-xs font-bold text-zinc-900 dark:text-white">{p.name}</p>
+                      <p className="text-[10px] uppercase tracking-wider text-zinc-500 mb-1">{p.stack}</p>
+                      <p className="text-[11px] leading-snug text-zinc-600 dark:text-zinc-300">{p.detail}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
               <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-80 h-40 bg-cyan-500/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>

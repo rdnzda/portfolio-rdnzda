@@ -32,11 +32,11 @@ const switzer = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL('https://rdnzda.com'),
   title: {
-    default: "Redean Akunzada | RDNZDA - Creative Developer & Designer",
+    default: "Redean Akunzada | RDNZDA - Étudiant en informatique, cap sur la cybersécurité",
     template: "%s | RDNZDA"
   },
-  description: "Développeur Full-Stack & Designer Web Freelance à Orléans. Expert Next.js, React et Motion Design pour des expériences digitales sur-mesure.",
-  keywords: ["Akunzada Redean", "RDNZDA", "Redean Akunzada", "Développeur Web Orléans", "Freelance Next.js", "Creative Developer", "Site Vitrine"],
+  description: "Étudiant en L3 Informatique à l'Université d'Orléans, en route vers la cybersécurité. Recherche un stage en cybersécurité dès mai 2027, puis une alternance bac+5.",
+  keywords: ["Akunzada Redean", "RDNZDA", "Redean Akunzada", "Étudiant informatique Orléans", "Stage cybersécurité", "Alternance cybersécurité", "Licence informatique"],
   authors: [{ name: "Redean Akunzada", url: "https://rdnzda.com" }],
   creator: "Redean Akunzada",
   icons: {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Akunzada Redean | RDNZDA",
-    description: "Creative Developer & Designer basé à Orléans.",
+    description: "Étudiant en L3 Informatique à Orléans, en route vers la cybersécurité.",
     url: "https://rdnzda.com",
     siteName: "RDNZDA Portfolio",
     locale: "fr_FR",

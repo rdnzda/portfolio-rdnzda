@@ -35,12 +35,12 @@ export default function ContactSection() {
                             </div>
 
                             <h2 className="font-syncopate text-4xl sm:text-5xl md:text-6xl text-foreground font-bold uppercase tracking-tight mb-8">
-                                Parlons de <br /> votre projet.
+                                Parlons de <br /> mon stage.
                             </h2>
 
                             <p className="text-foreground text-base leading-relaxed max-w-md font-sans mb-12">
-                                Une idée en tête ? Un besoin spécifique ? <br />
-                                Je suis actuellement disponible pour de nouvelles collaborations en freelance.
+                                Vous recrutez un stagiaire ou un alternant en cybersécurité ? <br />
+                                Je suis disponible pour un stage à partir du 18 mai 2027 (jusqu&apos;à 3,5 mois), puis pour une alternance bac+5.
                             </p>
 
                             {/* Status "Disponible" */}
@@ -49,7 +49,7 @@ export default function ContactSection() {
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                                 </span>
-                                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 font-sans">Disponible</span>
+                                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 font-sans">Stage dès mai 2027</span>
                             </div>
                         </div>
 
@@ -133,8 +133,8 @@ export default function ContactSection() {
                                     name="subject" /* IMPORTANT */
                                     className="w-full bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-foreground/50 focus:bg-white dark:focus:bg-zinc-900 transition-all font-sans appearance-none cursor-pointer"
                                 >
-                                    <option className="dark:bg-zinc-900 bg-zinc-100/80 text-foreground" value="Devis">Demande de devis</option>
-                                    <option className="dark:bg-zinc-900 bg-zinc-100/80 text-foreground" value="Mission">Proposition de mission</option>
+                                    <option className="dark:bg-zinc-900 bg-zinc-100/80 text-foreground" value="Stage">Proposition de stage</option>
+                                    <option className="dark:bg-zinc-900 bg-zinc-100/80 text-foreground" value="Alternance">Proposition d&apos;alternance</option>
                                     <option className="dark:bg-zinc-900 bg-zinc-100/80 text-foreground" value="Autre">Autre</option>
                                 </select>
                             </div>
@@ -146,7 +146,7 @@ export default function ContactSection() {
                                     name="message" /* IMPORTANT */
                                     required
                                     rows={4}
-                                    placeholder="Parlez-moi de votre projet..."
+                                    placeholder="Votre message..."
                                     className="w-full bg-zinc-100/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-foreground/50 focus:bg-white dark:focus:bg-zinc-900 transition-all placeholder:text-foreground/40 font-sans resize-none"
                                 ></textarea>
                             </div>

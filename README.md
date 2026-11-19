@@ -2,11 +2,11 @@
 
 My personal portfolio, live at **[rdnzda.com](https://rdnzda.com)** and deployed on Vercel.
 
-A single-page site with smooth scrolling that presents my projects, my background and a contact form, plus legal notice and privacy policy pages. The site content is in French.
+A single-page site with smooth scrolling that presents my projects, my skills, my background and a contact form, plus legal notice and privacy policy pages. The site content is in French.
 
 ## Features
 
-- Smooth-scroll sections: home, projects, services, biography, contact
+- Smooth-scroll sections: home, projects, skills, biography, contact
 - Animated aurora background and a custom cursor
 - Scroll-reveal animations driven by an Intersection Observer hook (`hooks/useInView.ts`)
 - Contact form handled by Formspree (no backend)
@@ -37,7 +37,7 @@ Other scripts: `npm run build`, `npm start`, `npm run lint`.
 ```text
 app/                    routes: /, /mentions-legales, /politique-confidentialite
 components/layout/      BackgroundLayout (navigation + aurora), Footer
-components/sections/    one file per section (Hero, Projects, Services, Biography, Contact)
+components/sections/    one file per section (Hero, Projects, Skills, Biography, Contact)
 components/ui/          CustomCursor, AuroraBackground, FooterMeta
 hooks/                  useInView
 public/                 images and icons

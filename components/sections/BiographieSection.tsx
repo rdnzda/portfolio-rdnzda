@@ -13,8 +13,15 @@ import {
   SiGit,
   SiPython,
   SiMongodb,
-  SiPostgresql
+  SiPostgresql,
+  SiC,
+  SiCplusplus,
+  SiLinux,
+  SiDjango,
+  SiDocker,
+  SiWireshark
 } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
 import { IconType } from "react-icons";
 
 interface Skill {
@@ -39,21 +46,28 @@ interface BiographieSectionProps {
 export default function BiographieSection({
   title = "À propos",
   subtitle = "Qui suis-je ?",
-  description = "Actuellement étudiant en informatique à l'UFR Sciences et Techniques de Orléans, je poursuis une licence en informatique tout en me formant au développement web. Passionné par la création de sites web modernes et fonctionnels, j'ai acquis des compétences solides en développement front-end et back-end. En parallèle de mes études, je travaille en tant que développeur et designer web freelance, ce qui me permet de mettre en pratique mes connaissances et de collaborer avec divers clients sur des projets variés.",
+  description = "Étudiant en L3 Informatique à l'UFR Sciences et Techniques d'Orléans (4e de promotion en L2), je m'oriente vers la cybersécurité : réseaux, systèmes Linux et sécurité des applications web. En parallèle de mes cours, je me forme en autonomie sur TryHackMe. Je recherche un stage en cybersécurité à partir du 18 mai 2027, que je souhaite prolonger par une alternance bac+5 dans ce domaine. À côté, je crée des vidéos courtes pour TikTok, avec des outils de montage automatisé.",
   skills = [
-    { name: "React", icon: SiReact, color: "#61DAFB" },
-    { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
-    { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-    { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-    { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-    { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-    { name: "Git", icon: SiGit, color: "#F05032" },
+    { name: "Linux", icon: SiLinux, color: "#FCC624" },
+    { name: "Wireshark", icon: SiWireshark, color: "#1679A7" },
+    { name: "C", icon: SiC, color: "#A8B9CC" },
+    { name: "C++", icon: SiCplusplus, color: "#00599C" },
+    { name: "Java", icon: FaJava, color: "#E76F00" },
     { name: "Python", icon: SiPython, color: "#3776AB" },
+    { name: "Django", icon: SiDjango, color: "#44B78B" },
+    { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
+    { name: "React", icon: SiReact, color: "#61DAFB" },
+    { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+    { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+    { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+    { name: "Docker", icon: SiDocker, color: "#2496ED" },
+    { name: "Git", icon: SiGit, color: "#F05032" },
   ],
   experience = [
-    { year: "2024", title: "Formation Développeur & Intégrateur Web", description: "Certification professionnelle enregistrée au Répertoire National des Certifications Professionnelles au niveau 5 (code 326t) par décision de France compétences publiée le 15 décembre 2021.", company: "OpenClassrooms" },
-    { year: "2024-2027", title: "Licence Informatique", description: "Actuellement étudiant en informatique à l'UFR Sciences et Techniques de Orléans.", company: "UFR Sciences et Techniques de Orléans" },
-    { year: "2026", title: "Développeur & Designer Web Freelance", company: "Auto-entrepreneur" },
+    { year: "2024 – 2027", title: "Licence Informatique, parcours ingénierie", description: "4e de promotion en L2, 1er au semestre 3.", company: "UFR Sciences et Techniques d'Orléans" },
+    { year: "2026", title: "Autoformation en cybersécurité", description: "Pre Security terminé, Cyber Security 101 en cours.", company: "TryHackMe" },
+    { year: "2026", title: "Auto-entrepreneur, création de contenu vidéo", company: "Vidéos courtes pour TikTok" },
+    { year: "2023 – 2024", title: "Diplôme d'Intégrateur Web (RNCP niveau 5, bac+2)", company: "OpenClassrooms" },
   ]
 }: BiographieSectionProps) {
   
@@ -193,10 +207,10 @@ export default function BiographieSection({
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: "3+", label: "Années de Pratique" },
-              { value: "10+", label: "Projets réalisés" },
-              { value: "100%", label: "Engagé" },
-              { value: "∞", label: "Passion", rotate: true },
+              { value: "4e", label: "Promo L2" },
+              { value: "19,75", label: "/20 en système Unix" },
+              { value: "25", label: "Dépôts GitHub" },
+              { value: "C1", label: "En anglais" },
             ].map((stat, index) => (
               <div 
                 key={index}
@@ -205,7 +219,7 @@ export default function BiographieSection({
                 }`}
                 style={{ transitionDelay: statsInView ? `${index * 100}ms` : "0ms" }}
               >
-                <div className={`text-4xl md:text-5xl font-bold text-foreground font-syncopate transition-all duration-300 group-hover:scale-110 group-hover:text-zinc-600 dark:group-hover:text-zinc-200 ${stat.rotate ? "group-hover:rotate-180" : ""}`}>
+                <div className={`text-4xl md:text-5xl font-bold text-foreground font-syncopate transition-all duration-300 group-hover:scale-110 group-hover:text-zinc-600 dark:group-hover:text-zinc-200`}>
                   {stat.value}
                 </div>
                 <div className="text-zinc-500 text-xs uppercase tracking-widest mt-2 transition-colors duration-300 group-hover:text-zinc-600 dark:group-hover:text-zinc-400">

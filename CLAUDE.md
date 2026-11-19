@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Description
 
-Portfolio personnel de Rtan Jda — développeur web freelance. Site vitrine monopage avec défilement fluide présentant les projets, services, biographie et un formulaire de contact. Conçu avec une esthétique moderne (fond aurora animé, curseur personnalisé, animations au scroll) pour refléter un positionnement créatif et professionnel. Entièrement en français, déployé en production.
+Portfolio personnel de Redean Akunzada (rdnzda) — étudiant en L3 Informatique à Orléans, en route vers la cybersécurité, à la recherche d'un stage (dès mai 2027) puis d'une alternance bac+5. Site monopage avec défilement fluide présentant les projets, les compétences, la biographie et un formulaire de contact. Conçu avec une esthétique moderne (fond aurora animé, curseur personnalisé, animations au scroll). Entièrement en français, déployé en production. Le site ne propose pas de prestations : tout contenu doit rester cohérent avec le CV (aucun client ni mission inventés).
 
 ## Commands
 
@@ -26,11 +26,11 @@ No test framework is configured.
 - `/mentions-legales` — legal notices
 - `/politique-confidentialite` — privacy policy
 
-**Page structure:** `app/page.tsx` composes all sections inside `BackgroundLayout`, which provides the navigation and Aurora animated background. Scroll anchors: `#home`, `#projets`, `#services`, `#biographie`, `#contact`.
+**Page structure:** `app/page.tsx` composes all sections inside `BackgroundLayout`, which provides the navigation and Aurora animated background. Scroll anchors: `#home`, `#projets`, `#services` (labelled « Compétences » in the nav), `#biographie`, `#contact`.
 
 **Components:**
 - `components/layout/` — `BackgroundLayout` (nav + aurora wrapper), `Footer`
-- `components/sections/` — one file per scroll section (`HeroSection`, `ProjetsSection`, `ServicesSection`, `BiographieSection`, `ContactSection`)
+- `components/sections/` — one file per scroll section (`HeroSection`, `ProjetsSection`, `ServicesSection` (skills), `BiographieSection`, `ContactSection`)
 - `components/ui/` — `CustomCursor`, `AuroraBackground`, `FooterMeta`
 
 **Hooks:** `hooks/useInView.ts` — generic Intersection Observer hook that triggers once on first viewport entry; used for scroll-reveal animations throughout sections.
