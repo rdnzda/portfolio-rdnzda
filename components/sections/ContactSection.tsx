@@ -22,7 +22,7 @@ export default function ContactSection() {
           index="04"
           label="Contact"
           title={<>Parlons de mon stage<span className="text-accent">.</span></>}
-          intro="Vous recrutez un stagiaire ou un alternant en cybersécurité ? Je suis disponible pour un stage à partir du 18 mai 2027 (jusqu'à 3,5 mois), puis pour une alternance bac+5."
+          intro="Vous recrutez un stagiaire ou un alternant en cybersécurité ? Je suis disponible pour un stage à partir du 18 mai 2027 (jusqu'à 3,5 mois), puis pour une alternance bac+5 dès septembre 2027."
         />
 
         <div className="grid grid-cols-12 gap-x-6 gap-y-12">
@@ -39,14 +39,18 @@ export default function ContactSection() {
             <dl className="mt-10 border-t border-border text-sm">
               <div className="grid grid-cols-[7rem_1fr] gap-4 py-3 border-b border-border">
                 <dt className="font-mono text-[11px] text-muted-foreground pt-0.5">Localisation</dt>
-                <dd className="text-foreground">Orléans, France · télétravail possible</dd>
+                <dd className="text-foreground">Orléans (45) / Châteauroux (36)</dd>
               </div>
               <div className="grid grid-cols-[7rem_1fr] gap-4 py-3 border-b border-border">
                 <dt className="font-mono text-[11px] text-muted-foreground pt-0.5">Disponibilité</dt>
                 <dd className="text-foreground flex items-center gap-2">
                   <span aria-hidden className="inline-block h-1.5 w-1.5 bg-accent" />
-                  Stage dès mai 2027
+                  Stage dès mai 2027, alternance dès septembre 2027
                 </dd>
+              </div>
+              <div className="grid grid-cols-[7rem_1fr] gap-4 py-3 border-b border-border">
+                <dt className="font-mono text-[11px] text-muted-foreground pt-0.5">Mobilité</dt>
+                <dd className="text-foreground">Permis B, véhiculé</dd>
               </div>
               {liens.map((lien) => (
                 <div key={lien.label} className="grid grid-cols-[7rem_1fr] gap-4 py-3 border-b border-border">

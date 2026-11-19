@@ -13,6 +13,7 @@
   --input-bg: #FAF9F6;
   --nav-bg: rgba(243, 241, 236, 0.9);
   --accent: #C8410B;
+  --grid-color: rgba(22, 22, 20, 0.06);
 }
 
 /* ===== TOKENS DARK MODE ===== */
@@ -28,6 +29,7 @@
     --input-bg: #171715;
     --nav-bg: rgba(16, 16, 15, 0.88);
     --accent: #FF6A2B;
+    --grid-color: rgba(232, 230, 224, 0.045);
   }
 }
 

@@ -4,7 +4,7 @@ import FooterMeta from "../ui/FooterMeta";
 const SPECS = [
   { label: "Formation", value: "L3 Informatique, Université d'Orléans" },
   { label: "Cible", value: "Cybersécurité : réseaux, systèmes, web" },
-  { label: "Recherche", value: "Stage dès le 18 mai 2027, puis alternance bac+5" },
+  { label: "Recherche", value: "Stage dès le 18 mai 2027, puis alternance bac+5 dès septembre 2027" },
 ];
 
 export default function HeroSection() {

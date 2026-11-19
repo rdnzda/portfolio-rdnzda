@@ -101,7 +101,19 @@ export default function BackgroundLayout({ children, showNav = true }: Backgroun
         </header>
       )}
 
-      <div className="relative">{children}</div>
+      {/* Quadrillage de fond, façon papier millimétré */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 z-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+          backgroundPosition: "center top",
+        }}
+      />
+
+      <div className="relative z-10">{children}</div>
     </div>
   );
 }

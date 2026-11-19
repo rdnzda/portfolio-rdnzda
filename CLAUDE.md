@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Description
 
-Portfolio personnel de Redean Akunzada (rdnzda) — étudiant en L3 Informatique à Orléans, en route vers la cybersécurité, à la recherche d'un stage (dès mai 2027) puis d'une alternance bac+5. Site monopage avec défilement fluide présentant les projets, les compétences, la biographie et un formulaire de contact. Esthétique sobre de type « dossier technique » : fond papier/encre, un seul accent orange (`--accent`), titres en Switzer, métadonnées en Geist Mono, filets fins, sections numérotées. Éviter les effets décoratifs génériques (glow, spotlight, blobs, marquees, curseur custom). Entièrement en français, déployé en production. Le site ne propose pas de prestations : tout contenu doit rester cohérent avec le CV (aucun client ni mission inventés).
+Portfolio personnel de Redean Akunzada (rdnzda) — étudiant en L3 Informatique à Orléans, en route vers la cybersécurité, à la recherche d'un stage (dès mai 2027) puis d'une alternance bac+5. Site monopage avec défilement fluide présentant les projets, les compétences, la biographie et un formulaire de contact. Esthétique sobre de type « dossier technique » : fond papier/encre avec quadrillage discret (`--grid-color`), un seul accent orange (`--accent`), titres en Switzer, métadonnées en Geist Mono, filets fins, sections numérotées. Éviter les effets décoratifs génériques (glow, spotlight, blobs, marquees, curseur custom). Entièrement en français, déployé en production. Le site ne propose pas de prestations : tout contenu doit rester cohérent avec le CV (aucun client ni mission inventés).
 
 ## Commands
 

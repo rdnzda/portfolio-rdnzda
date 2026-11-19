@@ -16,6 +16,7 @@ const domaines: Domaine[] = [
     description: "Comprendre comment les systèmes communiquent, et comment les protéger.",
     evidence: [
       "Bases des réseaux (cours de L3)",
+      "Sécurité applicative web",
       "Wireshark, machines virtuelles",
       "Autoformation sur TryHackMe",
     ],
@@ -27,18 +28,18 @@ const domaines: Domaine[] = [
     evidence: [
       "Authentification et droits d'accès",
       "Hachage des mots de passe (bcrypt), JWT",
-      "Protection CSRF, limitation des tentatives",
-      "Audit de sécurité de mon propre code",
+      "Rôles vérifiés côté serveur, en-têtes HTTP",
+      "Protection CSRF, limitation des inscriptions",
     ],
   },
   {
-    tag: "Validé en licence",
+    tag: "Acquis en licence",
     title: "Systèmes & programmation",
     description: "Des bases solides sous le capot.",
     evidence: [
-      "Linux, terminal et Bash",
-      "Système Unix : 19,75/20",
-      "Programmation en C, C++, Java, Python, OCaml",
+      "Linux (Ubuntu), terminal et Bash, Windows",
+      "Programmation système Unix (processus)",
+      "C, C++, Java, Python, OCaml, SQL",
       "Git, Docker (bases)",
     ],
   },
@@ -54,10 +55,12 @@ const tryhackme: { name: string; status: StepStatus }[] = [
 ];
 
 const outils: { category: string; items: string[] }[] = [
-  { category: "Langages", items: ["C", "C++", "Java", "Python", "OCaml", "JavaScript", "TypeScript"] },
-  { category: "Web", items: ["Django", "Next.js", "React", "Node.js"] },
+  { category: "Langages", items: ["C", "C++", "Java", "Python", "OCaml", "SQL", "JavaScript", "TypeScript"] },
+  { category: "Web", items: ["Django", "Dream (OCaml)", "React", "Next.js", "Node.js", "Express", "HTML/CSS"] },
   { category: "Données", items: ["PostgreSQL", "MongoDB"] },
-  { category: "Systèmes & outils", items: ["Linux", "Bash", "Git", "Docker (bases)", "Wireshark", "Machines virtuelles"] },
+  { category: "Systèmes", items: ["Linux (Ubuntu)", "Bash", "Windows", "Wireshark", "Machines virtuelles", "Docker (bases)"] },
+  { category: "Outils", items: ["Git/GitHub", "Bitbucket", "VS Code", "IntelliJ"] },
+  { category: "IA", items: ["Claude Code (agents, consignes, skills)", "Prompt engineering", "Grok Imagine", "ElevenLabs", "Remotion"] },
 ];
 
 const statusStyles: Record<StepStatus, { bar: string; text: string }> = {
@@ -74,7 +77,7 @@ export default function ServicesSection() {
           index="02"
           label="Compétences"
           title="Ce que je sais faire"
-          intro="Trois domaines, et pour chacun ce qui le prouve : un projet, une note ou un parcours suivi."
+          intro="Trois domaines, et pour chacun ce qui le prouve : un projet, un cours ou un parcours suivi."
         />
 
         {/* --- DOMAINES --- */}
@@ -107,6 +110,7 @@ export default function ServicesSection() {
         <Reveal className="mt-20 grid grid-cols-12 gap-x-6 gap-y-6">
           <div className="col-span-12 md:col-span-3">
             <h3 className="font-mono text-xs text-muted-foreground">Parcours TryHackMe</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Objectif d&apos;ici mai 2027 : valider Cyber Security 101, puis SOC Level 1 et Jr Penetration Tester.</p>
             <Link
               href="https://tryhackme.com/p/rdnzda"
               target="_blank"
@@ -151,7 +155,7 @@ export default function ServicesSection() {
         <div className="mt-16 flex flex-col md:flex-row md:items-center justify-between gap-4 border-t border-foreground pt-6">
           <p className="text-base text-foreground max-w-xl">
             Je recherche un stage en cybersécurité à partir du 18 mai 2027 (jusqu&apos;à 3,5 mois),
-            puis une alternance bac+5.
+            puis une alternance bac+5 dès septembre 2027.
           </p>
           <Link href="#contact" className="text-sm text-foreground underline decoration-accent underline-offset-4 hover:text-accent">
             Me contacter →

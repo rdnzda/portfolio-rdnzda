@@ -7,7 +7,7 @@ A single-page site with smooth scrolling that presents my projects, my skills, m
 ## Features
 
 - Smooth-scroll sections: home, projects, skills, biography, contact
-- Restrained editorial design: paper/ink palette, one accent colour, numbered sections, light and dark modes
+- Restrained editorial design: paper/ink palette, one accent colour, subtle background grid, numbered sections, light and dark modes
 - Scroll-reveal animations driven by an Intersection Observer hook (`hooks/useInView.ts`)
 - Contact form handled by Formspree (no backend)
 - Legal notice (`/mentions-legales`) and privacy policy (`/politique-confidentialite`) pages
