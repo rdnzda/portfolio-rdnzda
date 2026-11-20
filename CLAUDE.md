@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Description
 
-Portfolio personnel de Redean Akunzada (rdnzda) — étudiant en L3 Informatique à Orléans, en route vers la cybersécurité, à la recherche d'un stage (dès mai 2027) puis d'une alternance bac+5. Site monopage avec défilement fluide présentant les projets, les compétences, la biographie et un formulaire de contact. Esthétique sobre de type « dossier technique » : fond papier/encre avec quadrillage discret (`--grid-color`), un seul accent orange (`--accent`), titres en Switzer, métadonnées en Geist Mono, filets fins, sections numérotées. Éviter les effets décoratifs génériques (glow, spotlight, blobs, marquees, curseur custom). Entièrement en français, déployé en production. Le site ne propose pas de prestations : tout contenu doit rester cohérent avec le CV (aucun client ni mission inventés).
+Portfolio personnel de Redean Akunzada (rdnzda) — étudiant en L3 Informatique à Orléans, en route vers la cybersécurité, à la recherche d'un stage (dès mai 2027) puis d'une alternance bac+5. Site monopage avec défilement fluide présentant les projets, les compétences, la biographie et un formulaire de contact. Esthétique « plan technique » : papier gris-bleu et encre marine avec quadrillage discret (`--grid-color`), un seul accent bleu (`--accent`), Switzer pour tout le texte, Geist Mono réservé aux données techniques (stack, code). Le nom en grand dans le hero est le seul élément marquant ; une seule animation (l'entrée du hero). À éviter : numérotation décorative, libellés en petites capitales au-dessus des titres, flèches ajoutées aux liens, métadonnées séparées par « · », glow, blobs, apparitions au scroll. Entièrement en français, déployé en production. Le site ne propose pas de prestations : tout contenu doit rester cohérent avec le CV (aucun client ni mission inventés).
 
 ## Commands
 
@@ -31,11 +31,11 @@ No test framework is configured.
 **Components:**
 - `components/layout/` — `BackgroundLayout` (top nav wrapper), `Footer`
 - `components/sections/` — one file per scroll section (`HeroSection`, `ProjetsSection`, `ServicesSection` (skills), `BiographieSection`, `ContactSection`)
-- `components/ui/` — `SectionHeader` (numbered section title), `Reveal` (scroll-reveal wrapper), `FooterMeta` (Paris time + Orléans temperature)
+- `components/ui/` — `SectionHeader` (section title + intro), `ProjetPreview` (screenshot, code excerpt or flow preview of a project)
 
-**Hooks:** `hooks/useInView.ts` — generic Intersection Observer hook that triggers once on first viewport entry; used for scroll-reveal animations throughout sections.
+**Hooks:** `hooks/useInView.ts` — Intersection Observer hook, still used by the legal pages.
 
-**Animations:** Kept minimal. `fadeInUp` / `fadeIn` keyframes in `app/globals.css` for the hero; other sections use `Reveal`.
+**Animations:** Only the hero entrance (`fadeInUp` keyframes in `app/globals.css`). No scroll-reveal.
 
 **Content data:** projects, skills, TryHackMe steps and timeline are plain arrays at the top of each section file — edit them there, staying faithful to the CV.
 

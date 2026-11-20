@@ -44,20 +44,17 @@ export default function BackgroundLayout({ children, showNav = true }: Backgroun
 
             {/* Desktop */}
             <nav aria-label="Navigation principale" className="hidden md:flex items-center gap-8">
-              {NAV_LINKS.map((link, i) => {
+              {NAV_LINKS.map((link) => {
                 const isActive = activeSection === link.id;
                 return (
                   <Link
                     key={link.id}
                     href={`#${link.id}`}
                     aria-current={isActive ? "true" : undefined}
-                    className={`group flex items-baseline gap-1.5 text-sm transition-colors ${
-                      isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                    className={`text-sm transition-colors underline-offset-[6px] ${
+                      isActive ? "text-foreground underline decoration-accent decoration-2" : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
-                    <span className={`font-mono text-[10px] ${isActive ? "text-accent" : ""}`}>
-                      0{i + 1}
-                    </span>
                     {link.label}
                   </Link>
                 );
@@ -65,16 +62,16 @@ export default function BackgroundLayout({ children, showNav = true }: Backgroun
               <a
                 href="/CV_Redean_Akunzada.pdf"
                 download
-                className="font-mono text-xs text-foreground border border-foreground px-3 py-1.5 hover:bg-foreground hover:text-background transition-colors"
+                className="text-sm text-foreground border border-foreground px-3 py-1.5 hover:bg-foreground hover:text-background transition-colors"
               >
-                CV ↓
+                CV (PDF)
               </a>
             </nav>
 
             {/* Mobile trigger */}
             <button
               onClick={() => setIsMobileNavOpen((open) => !open)}
-              className="md:hidden font-mono text-xs text-foreground border border-border px-3 py-1.5"
+              className="md:hidden text-sm text-foreground border border-border px-3 py-1.5"
               aria-expanded={isMobileNavOpen}
               aria-controls="mobile-nav"
             >
@@ -89,16 +86,15 @@ export default function BackgroundLayout({ children, showNav = true }: Backgroun
             className={`md:hidden border-t border-border bg-background ${isMobileNavOpen ? "block" : "hidden"}`}
           >
             <ul className="px-4 py-2">
-              {NAV_LINKS.map((link, i) => (
+              {NAV_LINKS.map((link) => (
                 <li key={link.id} className="border-b border-border last:border-b-0">
                   <Link
                     href={`#${link.id}`}
                     onClick={() => setIsMobileNavOpen(false)}
-                    className={`flex items-baseline gap-3 py-3 text-lg ${
+                    className={`block py-3 text-lg ${
                       activeSection === link.id ? "text-foreground" : "text-muted-foreground"
                     }`}
                   >
-                    <span className="font-mono text-xs text-accent">0{i + 1}</span>
                     {link.label}
                   </Link>
                 </li>

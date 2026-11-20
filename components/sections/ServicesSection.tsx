@@ -1,6 +1,5 @@
 import Link from "next/link";
 import SectionHeader from "@/components/ui/SectionHeader";
-import Reveal from "@/components/ui/Reveal";
 
 interface Domaine {
   tag: string;
@@ -74,74 +73,68 @@ export default function ServicesSection() {
     <section id="services" className="relative w-full py-24 sm:py-32 px-4 sm:px-8">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
-          index="02"
-          label="Compétences"
           title="Ce que je sais faire"
           intro="Trois domaines, et pour chacun ce qui le prouve : un projet, un cours ou un parcours suivi."
         />
 
-        {/* --- DOMAINES --- */}
-        <div className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
-          {domaines.map((d, i) => (
-            <Reveal
-              as="article"
-              key={d.title}
-              delay={i * 80}
-              className={`py-8 md:px-6 border-b md:border-b-0 border-border ${i > 0 ? "md:border-l" : "md:pl-0"} ${i === domaines.length - 1 ? "md:pr-0" : ""}`}
-            >
-              <p className="font-mono text-[11px] text-muted-foreground">
-                <span className="text-accent">{String.fromCharCode(65 + i)}</span> — {d.tag}
-              </p>
-              <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-foreground">{d.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{d.description}</p>
-              <ul className="mt-6 space-y-2 text-sm text-foreground">
+        {/* Domaines */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-12">
+          {domaines.map((d) => (
+            <article key={d.title}>
+              <h3 className="text-2xl font-semibold tracking-[-0.03em] text-foreground">{d.title}</h3>
+              <p className="mt-1 text-sm text-accent">{d.tag}</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{d.description}</p>
+              <ul className="mt-5 space-y-2 text-sm text-foreground">
                 {d.evidence.map((e) => (
                   <li key={e} className="flex gap-2">
-                    <span aria-hidden className="text-accent">—</span>
+                    <span aria-hidden className="text-muted-foreground">–</span>
                     {e}
                   </li>
                 ))}
               </ul>
-            </Reveal>
+            </article>
           ))}
         </div>
 
-        {/* --- PARCOURS TRYHACKME --- */}
-        <Reveal className="mt-20 grid grid-cols-12 gap-x-6 gap-y-6">
-          <div className="col-span-12 md:col-span-3">
-            <h3 className="font-mono text-xs text-muted-foreground">Parcours TryHackMe</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Objectif d&apos;ici mai 2027 : valider Cyber Security 101, puis SOC Level 1 et Jr Penetration Tester.</p>
+        {/* Parcours TryHackMe : une vraie séquence, donc numérotée */}
+        <div className="mt-24 grid grid-cols-12 gap-x-6 gap-y-6">
+          <div className="col-span-12 md:col-span-4">
+            <h3 className="text-lg font-semibold text-foreground">Parcours TryHackMe</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground max-w-[40ch]">
+              Objectif d&apos;ici mai 2027 : valider Cyber Security 101, puis SOC Level 1 et Jr Penetration Tester.
+            </p>
             <Link
               href="https://tryhackme.com/p/rdnzda"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-2 text-sm text-foreground underline decoration-accent underline-offset-4 hover:text-accent"
+              className="inline-block mt-3 text-sm text-foreground underline decoration-accent underline-offset-4 hover:text-accent"
             >
-              Voir mon profil ↗
+              Voir mon profil TryHackMe
             </Link>
           </div>
-          <ol className="col-span-12 md:col-span-9 grid grid-cols-2 sm:grid-cols-4 gap-x-3 gap-y-6">
+          <ol className="col-span-12 md:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-x-3 gap-y-6">
             {tryhackme.map((step, i) => (
               <li key={step.name}>
-                <div className={`h-1 ${statusStyles[step.status].bar}`} />
-                <p className="mt-3 font-mono text-[11px] text-muted-foreground">Étape {i + 1}</p>
-                <p className="mt-1 text-sm font-medium text-foreground">{step.name}</p>
-                <p className={`mt-1 font-mono text-[11px] ${statusStyles[step.status].text}`}>{step.status}</p>
+                <div className={`h-1.5 ${statusStyles[step.status].bar}`} />
+                <p className="mt-3 text-sm font-medium text-foreground">
+                  <span className="text-muted-foreground tabular-nums">{i + 1}.</span> {step.name}
+                </p>
+                <p className={`mt-1 text-xs ${statusStyles[step.status].text}`}>{step.status}</p>
               </li>
             ))}
           </ol>
-        </Reveal>
+        </div>
 
-        {/* --- BOÎTE À OUTILS --- */}
-        <Reveal className="mt-20 grid grid-cols-12 gap-x-6 gap-y-6">
-          <h3 className="col-span-12 md:col-span-3 font-mono text-xs text-muted-foreground">Boîte à outils</h3>
-          <dl className="col-span-12 md:col-span-9 border-t border-border">
+        {/* Boîte à outils */}
+        <div className="mt-24 grid grid-cols-12 gap-x-6 gap-y-6">
+          <h3 className="col-span-12 md:col-span-4 text-lg font-semibold text-foreground">Boîte à outils</h3>
+          <dl className="col-span-12 md:col-span-8">
             {outils.map((group) => (
-              <div key={group.category} className="grid grid-cols-1 sm:grid-cols-[10rem_1fr] gap-2 sm:gap-6 py-4 border-b border-border">
+              <div key={group.category} className="grid grid-cols-1 sm:grid-cols-[9rem_1fr] gap-2 sm:gap-6 py-4 border-b border-border first:pt-0">
                 <dt className="text-sm text-muted-foreground">{group.category}</dt>
                 <dd className="flex flex-wrap gap-1.5">
                   {group.items.map((item) => (
-                    <span key={item} className="font-mono text-xs text-foreground border border-border px-2 py-1">
+                    <span key={item} className="font-mono text-xs text-foreground bg-card border border-border px-2 py-1">
                       {item}
                     </span>
                   ))}
@@ -149,17 +142,6 @@ export default function ServicesSection() {
               </div>
             ))}
           </dl>
-        </Reveal>
-
-        {/* --- CTA --- */}
-        <div className="mt-16 flex flex-col md:flex-row md:items-center justify-between gap-4 border-t border-foreground pt-6">
-          <p className="text-base text-foreground max-w-xl">
-            Je recherche un stage en cybersécurité à partir du 18 mai 2027 (jusqu&apos;à 3,5 mois),
-            puis une alternance bac+5 dès septembre 2027.
-          </p>
-          <Link href="#contact" className="text-sm text-foreground underline decoration-accent underline-offset-4 hover:text-accent">
-            Me contacter →
-          </Link>
         </div>
       </div>
     </section>

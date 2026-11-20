@@ -10,12 +10,7 @@ export type Preview =
 function Frame({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <figure className="border border-border bg-card overflow-hidden">
-      <div className="flex items-center gap-2 px-3 py-1.5 border-b border-border">
-        <span aria-hidden className="flex gap-1">
-          <span className="h-1.5 w-1.5 bg-border" />
-          <span className="h-1.5 w-1.5 bg-border" />
-          <span className="h-1.5 w-1.5 bg-border" />
-        </span>
+      <div className="px-3 py-1.5 border-b border-border">
         <span className="font-mono text-[10px] text-muted-foreground truncate">{title}</span>
       </div>
       {children}
@@ -80,7 +75,7 @@ export default function ProjetPreview({ preview }: { preview: Preview }) {
           const last = i === preview.steps.length - 1;
           return (
             <li key={step} className="flex items-center gap-2">
-              <span className={last ? "text-accent" : "text-muted-foreground"}>{last ? "→" : `${i + 1}.`}</span>
+              <span className={last ? "text-accent" : "text-muted-foreground"}>{`${i + 1}.`}</span>
               <span className={last ? "text-foreground font-medium" : "text-foreground/85"}>{step}</span>
               {!last && <span className="ml-auto text-muted-foreground">sinon refus</span>}
             </li>
