@@ -99,7 +99,7 @@ router.delete('/:id', auth, bookCtrl.deleteBook);`,
       { label: "Site", href: "https://cdm-2026-phi.vercel.app" },
       { label: "Code", href: `${GH}/CDM2026` },
     ],
-    preview: { type: "image", src: "/img/projets/cdm2026.jpg", alt: "Page d'accueil du site CDM 2026", url: "https://cdm-2026-phi.vercel.app", width: 1600, height: 813 },
+    preview: { type: "image", src: "/img/projets/cdm2026.jpg", alt: "Page d'accueil du site CDM 2026", url: "https://cdm-2026-phi.vercel.app", width: 1600, height: 1000 },
   },
   {
     name: "Movie Database",
