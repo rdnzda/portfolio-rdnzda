@@ -7,7 +7,8 @@ A single-page site with smooth scrolling that presents my projects, my skills, m
 ## Features
 
 - Smooth-scroll sections: home, projects, skills, biography, contact
-- Blueprint-style design: blue-grey paper and navy ink, one blue accent, subtle background grid, light and dark modes
+- Restrained editorial design: paper/ink palette, one accent colour, subtle background grid, numbered sections, light and dark modes
+- Scroll-reveal animations driven by an Intersection Observer hook (`hooks/useInView.ts`)
 - Contact form handled by Formspree (no backend)
 - Legal notice (`/mentions-legales`) and privacy policy (`/politique-confidentialite`) pages
 - Responsive, mobile-first layout
@@ -37,7 +38,7 @@ Other scripts: `npm run build`, `npm start`, `npm run lint`.
 app/                    routes: /, /mentions-legales, /politique-confidentialite
 components/layout/      BackgroundLayout (navigation), Footer
 components/sections/    one file per section (Hero, Projects, Skills, Biography, Contact)
-components/ui/          SectionHeader, ProjetPreview
+components/ui/          SectionHeader, Reveal, FooterMeta
 hooks/                  useInView
 public/                 images and icons
 ```

@@ -60,8 +60,8 @@ export const metadata: Metadata = {
 // --- CONFIGURATION MOBILE (Theme Color) ---
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#EDF0F3" },
-    { media: "(prefers-color-scheme: dark)", color: "#0C121A" },
+    { media: "(prefers-color-scheme: light)", color: "#F3F1EC" },
+    { media: "(prefers-color-scheme: dark)", color: "#10100F" },
   ],
   width: "device-width",
   initialScale: 1,

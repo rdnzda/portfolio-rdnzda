@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SectionHeader from "@/components/ui/SectionHeader";
+import Reveal from "@/components/ui/Reveal";
 
 const paragraphs = [
   "Étudiant en L3 Informatique à l'UFR Sciences et Techniques d'Orléans, je m'oriente vers la cybersécurité : réseaux, systèmes Linux et sécurité des applications web.",
@@ -65,11 +66,11 @@ const langues = [
 function Timeline({ title, entries }: { title: string; entries: Entry[] }) {
   return (
     <div>
-      <h3 className="text-lg font-semibold text-foreground mb-3">{title}</h3>
+      <h3 className="font-mono text-xs text-muted-foreground mb-3">{title}</h3>
       <ol className="border-t border-border">
         {entries.map((e) => (
           <li key={e.title} className="grid grid-cols-1 sm:grid-cols-[8rem_1fr] gap-1 sm:gap-6 py-5 border-b border-border">
-            <span className="text-sm text-muted-foreground tabular-nums pt-1">{e.year}</span>
+            <span className="font-mono text-xs text-muted-foreground pt-1">{e.year}</span>
             <div>
               <p className="text-lg font-medium text-foreground">{e.title}</p>
               <p className="text-sm text-muted-foreground">{e.place}</p>
@@ -86,39 +87,39 @@ export default function BiographieSection() {
   return (
     <section id="biographie" className="relative w-full py-24 sm:py-32 px-4 sm:px-8">
       <div className="max-w-6xl mx-auto">
-        <SectionHeader title="À propos" />
+        <SectionHeader index="03" label="Biographie" title="À propos" />
 
         <div className="grid grid-cols-12 gap-x-6 gap-y-14">
-          <div className="col-span-12 md:col-span-5 md:col-start-4 space-y-5">
+          <Reveal className="col-span-12 md:col-span-5 md:col-start-4 space-y-5">
             {paragraphs.map((p, i) => (
               <p key={i} className={i === 0 ? "text-xl leading-snug text-foreground" : "text-base leading-relaxed text-foreground/80"}>
                 {p}
               </p>
             ))}
-          </div>
+          </Reveal>
 
-          <div className="col-span-12 md:col-span-9 md:col-start-4 space-y-14">
+          <Reveal delay={100} className="col-span-12 md:col-span-9 md:col-start-4 space-y-14">
             <Timeline title="Formation" entries={formation} />
             <Timeline title="Expérience" entries={experience} />
-          </div>
+          </Reveal>
         </div>
 
-        <div className="mt-20 grid grid-cols-12 gap-x-6 gap-y-4">
-          <h3 className="col-span-12 md:col-span-3 text-lg font-semibold text-foreground">Langues</h3>
-          <div className="col-span-12 md:col-span-9 grid grid-cols-2 md:grid-cols-4 border-t border-border">
+        <Reveal className="mt-20 grid grid-cols-12 gap-x-6 gap-y-4">
+          <h3 className="col-span-12 md:col-span-3 font-mono text-xs text-muted-foreground">Langues</h3>
+          <div className="col-span-12 md:col-span-9 grid grid-cols-2 md:grid-cols-4 border-t border-foreground">
             {langues.map((l, i) => (
               <div key={l.name} className={`pt-5 pb-2 pr-4 border-border ${i % 2 === 1 ? "border-l pl-4" : ""} ${i > 0 ? "md:border-l md:pl-6" : ""}`}>
                 <p className="text-3xl sm:text-4xl font-semibold tracking-[-0.05em] text-foreground">{l.level}</p>
                 <p className="mt-1 text-sm text-foreground">{l.name}</p>
                 {l.note && l.href && (
-                  <Link href={l.href} target="_blank" rel="noopener noreferrer" className="text-xs text-muted-foreground underline underline-offset-2 hover:text-accent">
-                    {l.note}
+                  <Link href={l.href} target="_blank" rel="noopener noreferrer" className="font-mono text-[11px] text-muted-foreground hover:text-accent">
+                    {l.note} ↗
                   </Link>
                 )}
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

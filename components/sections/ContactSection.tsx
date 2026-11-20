@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SectionHeader from "@/components/ui/SectionHeader";
+import Reveal from "@/components/ui/Reveal";
 
 const EMAIL = "akunzada.redean.pro@gmail.com";
 
@@ -11,21 +12,23 @@ const liens = [
 
 const fieldClass =
   "w-full bg-input-bg border border-border px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-foreground transition-colors";
-const labelClass = "block text-sm text-muted-foreground mb-1.5";
+const labelClass = "block font-mono text-[11px] text-muted-foreground mb-1.5";
 
 export default function ContactSection() {
   return (
     <section id="contact" className="relative w-full py-24 sm:py-32 px-4 sm:px-8">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
-          title="Parlons de mon stage"
+          index="04"
+          label="Contact"
+          title={<>Parlons de mon stage<span className="text-accent">.</span></>}
           intro="Vous recrutez un stagiaire ou un alternant en cybersécurité ? Je suis disponible pour un stage à partir du 18 mai 2027 (jusqu'à 3,5 mois), puis pour une alternance bac+5 dès septembre 2027."
         />
 
         <div className="grid grid-cols-12 gap-x-6 gap-y-12">
           {/* Coordonnées */}
-          <div className="col-span-12 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-4">
-            <p className="text-sm text-muted-foreground mb-2">Email</p>
+          <Reveal className="col-span-12 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-4">
+            <p className="font-mono text-[11px] text-muted-foreground mb-2">Email</p>
             <a
               href={`mailto:${EMAIL}`}
               className="text-lg sm:text-xl break-all text-foreground underline decoration-accent underline-offset-4 hover:text-accent"
@@ -38,40 +41,40 @@ export default function ContactSection() {
               download
               className="mt-6 inline-flex items-center gap-2 px-4 py-2.5 border border-foreground text-sm text-foreground hover:bg-foreground hover:text-background transition-colors"
             >
-              Télécharger mon CV
+              Télécharger mon CV (PDF) ↓
             </a>
 
             <dl className="mt-10 border-t border-border text-sm">
               <div className="grid grid-cols-[7rem_1fr] gap-4 py-3 border-b border-border">
-                <dt className="text-muted-foreground">Localisation</dt>
+                <dt className="font-mono text-[11px] text-muted-foreground pt-0.5">Localisation</dt>
                 <dd className="text-foreground">Orléans (45) / Châteauroux (36)</dd>
               </div>
               <div className="grid grid-cols-[7rem_1fr] gap-4 py-3 border-b border-border">
-                <dt className="text-muted-foreground">Disponibilité</dt>
+                <dt className="font-mono text-[11px] text-muted-foreground pt-0.5">Disponibilité</dt>
                 <dd className="text-foreground flex items-center gap-2">
                   <span aria-hidden className="inline-block h-1.5 w-1.5 bg-accent" />
                   Stage dès mai 2027, alternance dès septembre 2027
                 </dd>
               </div>
               <div className="grid grid-cols-[7rem_1fr] gap-4 py-3 border-b border-border">
-                <dt className="text-muted-foreground">Mobilité</dt>
+                <dt className="font-mono text-[11px] text-muted-foreground pt-0.5">Mobilité</dt>
                 <dd className="text-foreground">Permis B, véhiculé</dd>
               </div>
               {liens.map((lien) => (
                 <div key={lien.label} className="grid grid-cols-[7rem_1fr] gap-4 py-3 border-b border-border">
-                  <dt className="text-muted-foreground">{lien.label}</dt>
+                  <dt className="font-mono text-[11px] text-muted-foreground pt-0.5">{lien.label}</dt>
                   <dd>
                     <Link href={lien.href} target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-accent">
-                      {lien.handle}
+                      {lien.handle} ↗
                     </Link>
                   </dd>
                 </div>
               ))}
             </dl>
-          </div>
+          </Reveal>
 
           {/* Formulaire */}
-          <div className="col-span-12 md:col-span-9 md:col-start-4 lg:col-span-5 lg:col-start-8">
+          <Reveal delay={100} className="col-span-12 md:col-span-9 md:col-start-4 lg:col-span-5 lg:col-start-8">
             <form action="https://formspree.io/f/xaqwzggg" method="POST" className="space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
@@ -100,12 +103,12 @@ export default function ContactSection() {
 
               <button
                 type="submit"
-                className="w-full sm:w-auto px-6 py-3 bg-accent text-background text-sm font-medium hover:opacity-90 transition-opacity"
+                className="w-full sm:w-auto px-6 py-3 bg-foreground text-background text-sm font-medium hover:bg-accent transition-colors"
               >
-                Envoyer le message
+                Envoyer le message →
               </button>
             </form>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
